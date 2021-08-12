@@ -1,0 +1,11 @@
+#Property Name			Border  BG      Text   Indicator Child Border
+client.focused			#d6acff #282a36 #f8f8f8 #a4ffff #d6acff
+client.focused_inactive	#3a3c4e #282a36 #f8f8f8 #4d4f68 #3a3c4e
+client.unfocused		#3a3c4e #282a36 #f8f8f8 #4d4f68 #3a3c4e
+client.urgent			#ff5555 #ff6e6e #21222c #ff0000 #ff5555
+
+font pango:BitstreamVeraSansMono Nerd Font 10
+titlebar_border_thickness 2
+
+
+# vim: ft=cfg

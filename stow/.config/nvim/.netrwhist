@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/lilith/.local/share/Steam/steamapps/common/Skyrim/Skyrim'
+let g:netrw_dirhist_1='/home/lilith/.local/share/Steam/steamapps/common/Skyrim'
+let g:netrw_dirhist_0='/home/lilith/.local/share/Steam/steamapps/common/Skyrim/Skyrim'
+let g:netrw_dirhist_9='/home/lilith/.local/share/Steam/steamapps/common/Skyrim'
+let g:netrw_dirhist_8='/home/lilith'
+let g:netrw_dirhist_7='/home/lilith/.vim/pack'
+let g:netrw_dirhist_6='/home/lilith/.vim/pack/kite'
+let g:netrw_dirhist_5='/home/lilith/.vim/pack'
+let g:netrw_dirhist_4='/home/lilith/.vim'
+let g:netrw_dirhist_3='/home/lilith'

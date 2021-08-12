@@ -1,0 +1,206 @@
+format = """
+[╭╴](bold #6272a4)$username[@](#a4ffff dimmed)$hostname[╶${custom.frame}╮](bold #6272a4)
+[│](bold #6272a4)$status ${custom.dir_rw}$directory$git_branch$package$rust$conda$python$java$php$lua$kotlin$nodejs$dotnet
+[╰─╴](bold #6272a4)[](bold #69ff94) """
+
+
+[character]
+success_symbol = ""
+vicmd_symbol = ""
+error_symbol = ""
+[directory]
+truncate_to_repo = false
+truncation_length = 50
+truncation_symbol = ".."
+fish_style_pwd_dir_length = 1
+style = "#ff92df"
+read_only_style = ""
+read_only = ""
+#read_only = ""
+format = " [$read_only]($read_only_style) [$path]($style) [╵](bold #6272a4)"
+[hostname]
+ssh_only = false
+trim_at = "."
+style = "#8be9fd dimmed"
+format = "[$hostname]($style)"
+[username]
+style_root = "#ff5555"
+style_user = "#a4ffff"
+format = "[$user]($style)"
+show_always = true
+[cmd_duration]
+min_time = 10
+show_milliseconds = true
+format = "[ $duration]($style)"
+[jobs]
+symbol = " "
+# hardware config
+[battery]
+disabled = true
+unknown_symbol = ""
+empty_symbol = ""
+discharging_symbol = ""
+charging_symbol = ""
+full_symbol = ""
+	[[battery.display]]
+	threshold = 10
+	style = "bold fg:red"
+	[[battery.display]]
+	threshold = 30
+	style = "fg:#ff8800"
+	[[battery.display]]
+	threshold = 50
+	style = "fg:yellow"
+[memory_usage]
+disabled = true
+symbol = " "
+[time]
+disabled = false
+style = "#4169e1"
+format = "[](bg:$style fg:black)[🕙 $time](bg:$style fg:white)[](fg:$style)"
+[status]
+disabled = false
+style = "red"
+#symbol = "\\(╯°□°）╯︵ ┻━┻ "
+symbol = ""
+format = "\b[$symbol](fg:$style)"
+# VCS
+[git_branch]
+symbol = "  "
+style = "#bd93f9"
+format = "[$symbol$branch](fg:$style)[](fg:$style)"
+[git_commit]
+style = "#f05133"
+format = "\b\b[ ﰖ $hash](fg:white bg:$style)[](fg:$style) "
+[git_state]
+disabled = true
+am = "APPLYING-MAILBOX"
+am_or_rebase = "APPLYING-MAILBOX/REBASE"
+style = "#f05133"
+format = "\b\b[ \\($state( $progress_current/$progress_total)\\)](fg:white bg:$style)[](fg:$style) "
+[git_status]
+disabled = true
+style = "#f05133"
+format = "($conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind\b )"
+conflicted = "[ ](fg:88)[   ${count} ](fg:white bg:88)[ ](fg:88)"
+staged = "[M$count ](fg:green)"
+modified = "[M${count} ](fg:red)"
+renamed = "[R${count} ](fg:208)"
+deleted = "[ ${count} ](fg:208)"
+untracked = "[?${count} ](fg:red)"
+stashed = " ${count} "
+ahead = "[ ${count} ](fg:purple)"
+behind = "[ ${count} ](fg:yellow)"
+diverged = "[](fg:88)[  נּ ](fg:white bg:88)[ ${ahead_count} ](fg:purple bg:88)[ ${behind_count} ](fg:yellow bg:88)[ ](fg:88)"
+[shlvl]
+disabled = true
+style = "fg:bright-blue"
+symbol = " "
+[env_var]
+disabled = true
+variable = "GAMBLE_TEST_COMMAND"
+format = "gambling with [$env_value]($style)"
+# techno specific
+[package]
+symbol = " "
+format = ' / is [$symbol$version]($style)'
+[conda]
+symbol = " "
+format = ' / via [$symbol$environment]($style)'
+[java]
+symbol = " "
+format = ' / via [$symbol$version]($style)'
+[nodejs]
+symbol = " "
+format = ' / via [$symbol$version]($style)'
+[python]
+symbol = " "
+format = ' / via [$symbol$version]($style)'
+[lua]
+symbol = " "
+format = ' / via [$symbol$version]($style)'
+[kotlin]
+symbol = "🅺 "
+format = ' / via [$symbol$version]($style)'
+[rust]
+symbol = " "
+style = "fg:#ffa07a"
+format = ' / via [$symbol$version]($style)'
+
+[hg_branch]
+disabled = true
+[dart]
+disabled = true
+[dotnet]
+disabled = true
+[elixir]
+disabled = true
+[elm]
+disabled = true
+[erlang]
+disabled = true
+[golang]
+disabled = true
+[helm]
+disabled = true
+[julia]
+disabled = true
+[nim]
+disabled = true
+[ocaml]
+disabled = true
+[php]
+disabled = true
+[purescript]
+disabled = true
+[swift]
+disabled = true
+[zig]
+disabled = true
+[gcloud]
+disabled = true
+[openstack]
+disabled = true
+[crystal]
+disabled = true
+[kubernetes]
+disabled = true
+[docker_context]
+disabled = true
+[perl]
+disabled = true
+[ruby]
+disabled = true
+[terraform]
+disabled = true
+[vagrant]
+disabled = true
+[nix_shell]
+disabled = true
+[aws]
+disabled = true
+
+
+[custom.frame]
+### Swap out the two command entries here to match directory truncation style.
+
+## truncation_length = 1
+#command = "printf '─%.0s' {1..$(echo $(expr $(expr length $(~/.config/shortdir)) - $(expr length $USER@$(echo $HOST | rg -o -e '.{0,255}\\.')) + 4) | sed 's/^-.*/0/')}"
+
+## truncation_length = large enough never to truncate
+command = "printf '─%.0s' {1..$(echo $(expr $(expr length $(print -rD $PWD)) - $(expr length $USER@$(echo $HOST | rg -o -e '.{0,255}\\.')) + 4) | sed 's/^-.*/0/')}"
+
+shell = ["zsh"]
+when = 'true' # All custom commands need a "when" in order to function. Not documented, took hours to figure out.
+format = "$output"
+
+
+[custom.dir_rw]
+shell = ["zsh"]
+command = "[ -w . ] && echo \"\\033[0;35m \" || echo \"\\033[0;31m \""
+when = 'true'
+format = "$output"
+
+[custom.fish]
+command = "echo 🐠"
+when = 'test "$STARSHIP_SHELL" = "fish"'

@@ -1,0 +1,267 @@
+// 
+// Wired config. See https://github.com/Topazz/wired-notify/wiki for details.
+// 
+
+(
+
+// Maximum number of notifications to show. 0 removes the limit.
+max_notifications: 7,
+
+// Minimum window dimensions
+min_window_width: 1,
+min_window_height: 1,
+
+// Default timeout in ms for notifs without a custom time set.
+timeout: 2000,
+
+// Notification update frequency (ms). Also controls redraw rate. 16ms ~= 60hz.
+poll_interval: 16,
+
+// Mouse shortcuts for interacting with notifications.
+// ││ Left    │ 1  ││ Right   │ 2  ││
+// ││ Middle  │ 3  ││ Forward │ 9  ││
+// ││ Back    │ 8  ││         │    ││
+// The order of actions is set by the notif sender and so is totally arbitrary.
+// The only guarantee is that the default (notification_action1) will always be
+// the primary action. Most notifs don't go past action 1, so the rest are mostly
+// just edge cases.
+shortcuts: ShortcutsConfig(
+    notification_close:    2,
+    notification_closeall: 3,
+    notification_interact: 1,
+    notification_pause:    1,
+    notification_action1:  8,
+    notification_action2:  8,
+    notification_action3:  8,
+    notification_action4:  8,
+),
+
+// Either honor or ignore requests from apps to replace notifications.
+// Default: true
+replacing_enabled: true,
+
+// Either honor or ignore requests from apps to close notifications.
+// Default: true
+closing_enabled: true,
+
+// Enable/disable debug rendering, and change debug rect colors.
+// Defaults: false
+// 			Color(r: 0.0, g: 1.0, b: 0.0, a: 1.0)
+// 			Color(r: 10.0, g: 0.0, b: 0.0, a: 1.0)
+debug: false,
+debug_color:      Color(r: 0.0,
+    	                g: 1.0,
+                        b: 0.0,
+		        a: 1.0),
+debug_color_alt:  Color(r: 1.0,
+		        g: 0.0,
+		        b: 0.0,
+	                a: 1.0),
+
+
+layout_blocks: [
+    (
+        name: "root",
+        parent: "",
+        hook: Hook(parent_anchor: TR, self_anchor: TR),
+        offset: Vec2(x: -6.0, y: 6.0),
+        params: NotificationBlock((
+                monitor: 0,
+                border_width: 2.0,
+                border_rounding: 6.0,
+                background_color: Color(hex: "#55282a36"),
+                border_color: Color(hex: "#6272a4"),
+                border_color_urgency_low: Color(r: 0.15686, g: 0.15686, b: 0.15686, a: 0.2),
+                border_color_urgency_normal: Color(r: 0.92157, g: 0.858824, b: 0.698039, a: 0.2),
+                border_color_urgency_critical: Color(r: 0.98431, g: 0.28627, b: 0.203922, a: 0.2),
+                border_color_paused: Color(r: 0.98431, g: 0.741176, b: 0.184314, a: 1.0),
+
+                gap: Vec2(x: 0.0, y: 8.0),
+                notification_hook: Hook(parent_anchor: BR, self_anchor: TR),
+        )),
+    ),
+
+    (
+        name: "image",
+        parent: "root",
+        hook: Hook(parent_anchor: TL, self_anchor: TL),
+        offset: Vec2(x: 0.0, y: 0.0),
+        render_criteria: [HintImage], // Only render if HintImage is present
+        params: ImageBlock((
+                image_type: Hint,
+                padding: Padding(left: 10.0, right: -5.0, top: 10.0, bottom: 10.0),
+                rounding: 5.0,
+                scale_width: 64,
+                scale_height: 64,
+                min_width: 0,
+                min_height: 0,
+                filter_mode: Lanczos3,
+        )),
+    ),
+
+    (
+        name: "summary",
+        parent: "image",
+        hook: Hook(parent_anchor: TR, self_anchor: TL),
+        offset: Vec2(x: 0.0, y: 0.0),
+        render_criteria: [Summary],
+        params: TextBlock((
+                text: "<b>%s</b>",
+                font: "Bitstream Vera Sans Mono Nerd Font 10.5",
+                color: Color(hex: "#f8f8f8"),
+                padding: Padding(left: 15.0, right: 15.0, top: 15.0, bottom: 15.0),
+                dimensions: (width: (min: 50, max: -1), height: (min: 0, max: 0)),
+                dimensions_image_hint: (width: (min: 50, max: -1), height: (min: 0, max: 0)),
+                dimensions_image_app: (width: (min: 50, max: -1), height: (min: 0, max: 0)),
+                dimensions_image_both: (width: (min: 50, max: -1), height: (min: 0, max: 0)),
+        )),
+    ),
+
+ //   ( // Cannot use bc guayadeque puts the summary on multiple lines, cutting off all but the timestamp :/
+ //       name: "body",
+ //       parent: "summary",
+ //       hook: Hook(parent_anchor: BL, self_anchor: TL),
+ //       offset: Vec2(x: 0.0, y: 0.0),
+ //       render_criteria: [Body],
+ //       params: ScrollingTextBlock((
+ //               text: "%b",
+ //               font: "Bitstream Vera Sans Mono Nerd Font 10",
+ //               color: Color(hex: "#f8f8f8"),
+ //               padding: Padding(left: 15.0, right: 15.0, top: -10.0, bottom: 15.0),
+ //               width: (min: 150, max: 500),
+ //               width_image_hint: (min: 150, max: 500),
+ //               width_image_app: (min: 150, max: 500),
+ //               width_image_both: (min: 150, max: 500),
+ //               scroll_speed: 0.1,
+ //               lhs_dist: 35.0,
+ //               rhs_dist: 35.0,
+ //               scroll_t: 1.0,
+ //       )),
+ //   ),
+    (
+        name: "body",
+        parent: "summary",
+        hook: Hook(parent_anchor: BL, self_anchor: TL),
+        offset: Vec2(x: 0.0, y: 0.0),
+        render_criteria: [Body],
+        params: TextBlock((
+                text: "%b",
+                font: "Bitstream Vera Sans Mono Nerd Font 10",
+                color: Color(hex: "#f8f8f8"),
+                padding: Padding(left: 15.0, right: 15.0, top: -14.0, bottom: 15.0),
+                dimensions: (width: (min: 0, max: 600), height: (min: -1, max: -1)),
+                dimensions_image_hint: (width: (min: 0, max: 600), height: (min: -1, max: -1)),
+                dimensions_image_app: (width: (min: 0, max: 600), height: (min: -1, max: -1)),
+                dimensions_image_both: (width: (min: 0, max: 600), height: (min: -1, max: -1)),
+        )),
+    ),
+    (
+        name: "actiondefault",
+        parent: "summary",
+        hook: Hook(parent_anchor: BL, self_anchor: TL),
+        offset: Vec2(x: 13.0, y: 12.0),
+        render_criteria: [ActionDefault],
+        params: ButtonBlock((
+            text: "%a",
+            font: "Bitstream Vera Sans Mono Nerd Font 9",
+            action: DefaultAction,
+            text_color: Color(hex: "#c1c1c1"),
+            text_color_hovered: Color(hex: "#f1f1f1"),
+            border_color: Color(hex: "#6272a4"),
+            background_color: Color(hex: "#22282a36"),
+            background_color_hovered: Color(hex: "#88282a36"),
+            border_rounding: 2.0,
+            border_width: 2.0,
+            padding: Padding(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
+            dimensions: (width: (min: -1, max: 200), height: (min: 0, max: 0)),
+        )),
+    ),
+    (
+        name: "action0",
+        parent: "actiondefault",
+        hook: Hook(parent_anchor: TR, self_anchor: TL),
+        offset: Vec2(x: -2.0, y: 0.0),
+        render_criteria: [ActionOther(0)],
+        params: ButtonBlock((
+            text: "%a",
+            font: "Bitstream Vera Sans Mono Nerd Font 9",
+            action: OtherAction(0),
+            text_color: Color(hex: "#c1c1c1"),
+            text_color_hovered: Color(hex: "#f1f1f1"),
+            border_color: Color(hex: "#6272a4"),
+            background_color: Color(hex: "#22282a36"),
+            background_color_hovered: Color(hex: "#88282a36"),
+            border_rounding: 2.0,
+            border_width: 2.0,
+            padding: Padding(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
+            dimensions: (width: (min: -1, max: 200), height: (min: 0, max: 0)),
+        )),
+    ),
+    (
+        name: "action1",
+        parent: "action0",
+        hook: Hook(parent_anchor: TR, self_anchor: TL),
+        offset: Vec2(x: -2.0, y: 0.0),
+        render_criteria: [ActionOther(1)],
+        params: ButtonBlock((
+            text: "%a",
+            font: "Bitstream Vera Sans Mono Nerd Font 9",
+            action: OtherAction(1),
+            text_color: Color(hex: "#c1c1c1"),
+            text_color_hovered: Color(hex: "#f1f1f1"),
+            border_color: Color(hex: "#6272a4"),
+            background_color: Color(hex: "#22282a36"),
+            background_color_hovered: Color(hex: "#88282a36"),
+            border_rounding: 2.0,
+            border_width: 2.0,
+            padding: Padding(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
+            dimensions: (width: (min: -1, max: 200), height: (min: 0, max: 0)),
+        )),
+    ),
+    (
+        name: "action2",
+        parent: "action1",
+        hook: Hook(parent_anchor: TR, self_anchor: TL),
+        offset: Vec2(x: -2.0, y: 0.0),
+        render_criteria: [ActionOther(2)],
+        params: ButtonBlock((
+            text: "%a",
+            font: "Bitstream Vera Sans Mono Nerd Font 9",
+            action: OtherAction(2),
+            text_color: Color(hex: "#c1c1c1"),
+            text_color_hovered: Color(hex: "#f1f1f1"),
+            border_color: Color(hex: "#6272a4"),
+            background_color: Color(hex: "#22282a36"),
+            background_color_hovered: Color(hex: "#88282a36"),
+            border_rounding: 2.0,
+            border_width: 2.0,
+            padding: Padding(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
+            dimensions: (width: (min: -1, max: 200), height: (min: 0, max: 0)),
+        )),
+    ),
+    (
+        name: "action3",
+        parent: "action2",
+        hook: Hook(parent_anchor: TR, self_anchor: TL),
+        offset: Vec2(x: -2.0, y: 0.0),
+        render_criteria: [ActionOther(3)],
+        params: ButtonBlock((
+            text: "%a",
+            font: "Bitstream Vera Sans Mono Nerd Font 9",
+            action: OtherAction(3),
+            text_color: Color(hex: "#c1c1c1"),
+            text_color_hovered: Color(hex: "#f1f1f1"),
+            border_color: Color(hex: "#6272a4"),
+            background_color: Color(hex: "#22282a36"),
+            background_color_hovered: Color(hex: "#88282a36"),
+            border_rounding: 2.0,
+            border_width: 2.0,
+            padding: Padding(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
+            dimensions: (width: (min: -1, max: 200), height: (min: 0, max: 0)),
+        )),
+    ),
+
+
+],
+
+)

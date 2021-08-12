@@ -1,0 +1,9 @@
+[user]
+	email = 78992082+lilithium-hydride@users.noreply.github.com
+	name = lilithium-hydride
+[credential]
+	helper = cache --timeout=7200
+[core]
+	pager = nvim -R
+[color]
+	pager = no

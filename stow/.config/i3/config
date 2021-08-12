@@ -1,0 +1,449 @@
+# i3 config file (v4)
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty -1
+#set $term fooclient
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu wofi --term kitty --allow-images --insensitive --gtk-dark --fork --show drun | xargs swaymsg exec --
+#set $menu BEMENU_BACKEND=wayland bemenu-run -i -l 20 -P '>' | xargs swaymsg exec --
+set $menu rofi -show drun -theme base16-dracula | xargs swaymsg exec --
+
+#set $locker swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36
+
+set $locker betterlockscreen -l -t "NSA.Honeypot"
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Anhedonia.png
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#		   timeout 300 'swaylock -f -c 000000' \
+#		   timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#		   before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+#exec_always if pgrep swayidle > /tmp/swayidletest; then echo swayidle_already_running; else swayidle -w timeout 1200 'swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36' timeout 1500 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36'; fi
+#
+exec swayidle -w timeout 300 '$locker' timeout 1500 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep '$locker' after-resume 'waybar'
+
+
+## Volume control
+
+# Path to volume control, without trailing slash
+set $volumepath /usr/bin/i3-volume
+
+# Command for the status line (used with -t, requires -u)
+#   ie: i3blocks, i3status
+set $statuscmd i3status
+
+# Signal used to update the status line (used with -u, requires -t)
+#   i3blocks uses SIGRTMIN+10 by default
+#   i3status uses SIGUSR1 by default
+set $statussig SIGUSR1
+
+# Amount to increase/decrease volume as a percentage (used with -i, -d)
+set $volumestep 1
+
+# Pulseaudio sink name (not the numeric index)
+set $sinkname alsa_output.pci-0000_00_1f.3.analog-stereo
+
+# Output format
+set $outputformat "%i %v%p"
+
+
+
+### Appearance
+
+# Window border
+default_border pixel 2
+
+# Gaps between containers
+gaps inner 10
+#gaps outer 0
+
+# Gaps between screen edges and containers
+#gaps left 5
+#gaps right 5
+#gaps top 8
+#gaps bottom 5
+#gaps vertical 5
+#gaps horizontal 5
+
+border_radius 0
+
+
+### Input configuration
+#
+# Example configuration:
+#
+#	input "2:14:SynPS/2_Synaptics_TouchPad" {
+#		dwt enabled
+#		tap enabled
+#		natural_scroll enabled
+#		middle_emulation enabled
+#	}
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+#input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+#	accel_profile "flat"
+#	pointer_accel -0.5
+#}
+#
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#	tap enabled
+#	natural_scroll enabled
+#	dwt enabled
+#}
+#
+#input type:mouse {
+#	accel_profile "flat"~/.config/i3/i3-workspace.sh
+#	pointer_accel 0
+#}
+#
+#input type:touchpad {
+#	tap enabled
+#	natural_scroll enabled
+#	dwt enabled
+#}
+#
+#input type:pointer {
+#	tap enabled
+#	natural_scroll enabled
+#	dwt enabled
+#}
+
+### Key bindings
+
+#
+# Basics:
+#
+	# Media
+	#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 48 +1%
+	#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 48 -1%
+	#bindsym XF86AudioMute		  exec --no-startup-id pactl set-sink-mute 48 toggle
+	bindsym XF86AudioRaiseVolume exec $volumepath -ny -s $sinkname -N dunstify up $volumestep
+	bindsym XF86AudioLowerVolume exec $volumepath -ny -s $sinkname -N dunstify down $volumestep
+	bindsym XF86AudioMute		 exec $volumepath -ny -s $sinkname -N dunstify mute
+	bindsym XF86AudioPlay		 exec playerctl play-pause
+	bindsym XF86AudioNext		 exec playerctl next
+	bindsym XF86AudioPrev		 exec playerctl previous
+	bindsym XF86AudioStop		 exec playerctl stop
+
+
+
+
+	# Show clipboard manager
+	bindsym $mod+Control+v exec copyq toggle
+
+	# Screenshot and markup
+	bindsym $mod+Shift+s exec flameshot gui
+
+	# Start file browser
+	bindsym $mod+e exec pcmanfm-qt
+
+	# Start a terminal
+	bindsym $mod+Return exec $term
+	bindsym Control+Alt+t exec $term
+
+	# Kill focused window
+	bindsym $mod+Shift+c kill
+
+	# Start your launcher (Even buggier on X than on Wayland, somehow. Use below)
+	#bindsym --release Super_L exec $menu
+	
+	# Requires: xcape -e 'Super_L=Alt_L|F1'
+	bindsym --release Mod1+F1 exec $menu
+
+
+	# Drag floating windows by holding down $mod and left mouse button.
+	# Resize them with right mouse button + $mod.
+	# Despite the name, also works for non-floating windows.
+	# Change normal to inverse to use left mouse button for resizing and right
+	# mouse button for dragging.
+	floating_modifier $mod
+
+	# Lock the screen
+	bindsym $mod+Control+l exec $locker
+	bindsym $mod+l exec $locker
+
+	# Reload the configuration file
+	bindsym $mod+Control+r reload
+
+	# Exit sway (logs you out of your Wayland session)
+	bindsym $mod+Control+Shift+q exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X11 session.' -b 'Yes, exit i3' 'i3-msg exit'
+
+#
+# Moving around:
+#
+	# Move your focus around
+	#bindsym $mod+$left focus left
+	#bindsym $mod+$down focus down
+	#bindsym $mod+$up focus up
+	#bindsym $mod+$right focus right
+	# Or use $mod+[up|down|left|right]
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	# Move the focused window with the same, but add Shift
+	bindsym $mod+Shift+$left move left
+	bindsym $mod+Shift+$down move down
+	bindsym $mod+Shift+$up move up
+	bindsym $mod+Shift+$right move right
+	# Ditto, with arrow keys
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+
+# Change focus between workspaces
+#unbindsym $mod+1
+#unbindsym $mod+2
+#unbindsym $mod+3
+#unbindsym $mod+4
+#unbindsym $mod+5
+#unbindsym $mod+6
+#unbindsym $mod+7
+#unbindsym $mod+8
+#unbindsym $mod+9
+#unbindsym $mod+0
+bindsym $mod+1 exec --no-startup-id "~/.config/i3/i3-workspace goto 1"
+bindsym $mod+2 exec --no-startup-id "~/.config/i3/i3-workspace goto 2"
+bindsym $mod+3 exec --no-startup-id "~/.config/i3/i3-workspace goto 3"
+bindsym $mod+4 exec --no-startup-id "~/.config/i3/i3-workspace goto 4"
+bindsym $mod+5 exec --no-startup-id "~/.config/i3/i3-workspace goto 5"
+bindsym $mod+6 exec --no-startup-id "~/.config/i3/i3-workspace goto 6"
+bindsym $mod+7 exec --no-startup-id "~/.config/i3/i3-workspace goto 7"
+bindsym $mod+8 exec --no-startup-id "~/.config/i3/i3-workspace goto 8"
+bindsym $mod+9 exec --no-startup-id "~/.config/i3/i3-workspace goto 9"
+bindsym $mod+0 exec --no-startup-id "~/.config/i3/i3-workspace goto 0"
+
+# Move containers between workspaces
+#unbindsym $mod+Shift+1
+#unbindsym $mod+Shift+2
+#unbindsym $mod+Shift+3
+#unbindsym $mod+Shift+4
+#unbindsym $mod+Shift+5
+#unbindsym $mod+Shift+6
+#unbindsym $mod+Shift+7
+#unbindsym $mod+Shift+8
+#unbindsym $mod+Shift+9
+#unbindsym $mod+Shift+0
+bindsym $mod+Shift+1 exec --no-startup-id "~/.config/i3/i3-workspace move 1"
+bindsym $mod+Shift+2 exec --no-startup-id "~/.config/i3/i3-workspace move 2"
+bindsym $mod+Shift+3 exec --no-startup-id "~/.config/i3/i3-workspace move 3"
+bindsym $mod+Shift+4 exec --no-startup-id "~/.config/i3/i3-workspace move 4"
+bindsym $mod+Shift+5 exec --no-startup-id "~/.config/i3/i3-workspace move 5"
+bindsym $mod+Shift+6 exec --no-startup-id "~/.config/i3/i3-workspace move 6"
+bindsym $mod+Shift+7 exec --no-startup-id "~/.config/i3/i3-workspace move 7"
+bindsym $mod+Shift+8 exec --no-startup-id "~/.config/i3/i3-workspace move 8"
+bindsym $mod+Shift+9 exec --no-startup-id "~/.config/i3/i3-workspace move 9"
+bindsym $mod+Shift+0 exec --no-startup-id "~/.config/i3/i3-workspace move 0"
+
+workspace 1a output DP-2
+workspace 2a output DP-2
+workspace 3a output DP-2
+workspace 4a output DP-2
+workspace 5a output DP-2
+workspace 6a output DP-2
+workspace 7a output DP-2
+workspace 8a output DP-2
+workspace 9a output DP-2
+workspace 0a output DP-2
+
+workspace 1b output HDMI-0
+workspace 2b output HDMI-0
+workspace 3b output HDMI-0
+workspace 4b output HDMI-0
+workspace 5b output HDMI-0
+workspace 6b output HDMI-0
+workspace 7b output HDMI-0
+workspace 8b output HDMI-0
+workspace 9b output HDMI-0
+workspace 0b output HDMI-0
+
+
+# Move focused container to next output
+#bindsym $mod+o exec "~/git/swaysome/target/release/swaysome next_output"
+
+# Move focused container to previous output
+#bindsym $mod+Shift+o exec "~/git/swaysome/target/release/swaysome prev_output"
+
+# Init workspaces for every screen
+#exec "~/git/swaysome/target/release/swaysome init 1"
+
+
+#
+# Layout stuff:
+#
+	# You can "split" the current object of your focus with
+	# $mod+b or $mod+v, for horizontal and vertical splits
+	# respectively.
+	bindsym $mod+b splith
+	bindsym $mod+v splitv
+
+	# Switch the current container between different layout styles
+	bindsym $mod+s layout stacking
+	bindsym $mod+w layout tabbed
+	bindsym $mod+d layout toggle split
+
+	# Make the current focus fullscreen
+	bindsym $mod+f fullscreen
+
+	# Toggle the current focus between tiling and floating mode
+	bindsym $mod+Shift+space floating toggle
+
+	# Swap focus between the tiling area and the floating area
+	bindsym $mod+space focus mode_toggle
+
+	# Move focus to the parent container
+	bindsym $mod+a focus parent
+
+#
+# Scratchpad:
+#
+	# Sway has a "scratchpad", which is a bag of holding for windows.
+	# You can send windows there and get them back later.
+
+	# Move the currently focused window to the scratchpad
+	bindsym $mod+Shift+minus move scratchpad
+
+	# Show the next scratchpad window or hide the focused scratchpad window.
+	# If there are multiple scratchpad windows, this command cycles through them.
+	bindsym $mod+minus scratchpad show
+
+
+#
+# Resizing containers:
+#
+mode "resize" {
+	# left will shrink the containers width
+	# right will grow the containers width
+	# up will shrink the containers height
+	# down will grow the containers height
+	bindsym $left resize shrink width 10px
+	bindsym $down resize grow height 10px
+	bindsym $up resize shrink height 10px
+	bindsym $right resize grow width 10px
+
+	# Ditto, with arrow keys
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+
+	# Return to default mode
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+
+	#swaybar_command waybar
+
+	#position top
+
+	# When the status_command prints a new line to stdout, swaybar updates.
+	# The default just shows the current date and time.
+	#status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+	#colors {
+	#	 statusline #ffffff
+	#	 background #323232
+	#	 inactive_workspace #32323200 #32323200 #5c5c5c
+	#}
+}
+
+#
+# Window Rules
+#
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="copyq"] floating enable
+for_window [class="pavucontrol"] floating enable
+for_window [class="pavucontrol"] border pixel 2
+for_window [class="pavucontrol-qt"] floating enable
+for_window [class="pavucontrol-qt"] border pixel 2
+for_window [class="Qalculate-gtk"] floating enable
+for_window [class="qalculate-qt"] floating enable
+for_window [class="Picture in picture"] floating enable
+for_window [class="(?i)mplayer"] floating enable
+for_window [class="flameshot"] floating enable
+for_window [class="wired"] border pixel 0
+no_focus [class="wired"]
+
+
+#
+# Theming
+#
+
+#Property Name			Border  BG      Text   Indicator Child Border
+client.focused			#d6acff #282a36 #f8f8f8 #a4ffff #d6acff
+client.focused_inactive	#3a3c4e #282a36 #f8f8f8 #4d4f68 #3a3c4e
+client.unfocused		#3a3c4e #282a36 #f8f8f8 #4d4f68 #3a3c4e
+client.urgent			#ff5555 #ff6e6e #21222c #ff0000 #ff5555
+
+font pango:BitstreamVeraSansMono Nerd Font 10
+#titlebar_border_thickness 2
+
+
+#
+# Autostarts
+#
+
+#exec_always dunst
+#exec_always pipewire-pulse
+#exec pipewire-media-session
+
+# Start user dbus session for mako. playerctld must be started after the last dbus
+# is created, and others may also require this.
+#exec -- dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus && mako && playerctld daemon && copyq --start-server enable 
+#exec mako 
+#exec playerctld daemon
+exec --no-startup-id copyq --start-server enable 
+exec --no-startup-id picom --experimental-backends -b
+#exec_always mako
+exec_always --no-startup-id playerctld daemon
+#exec_always -- copyq --start-server enable
+exec_always --no-startup-id pipewire
+#exec_always --no-startup-id dunst
+exec_always --no-startup-id wired
+exec --no-startup-id xcape -e 'Super_L=Alt_L|F1'
+
+#include /etc/sway/config.d/*
+#include ~/.config/sway/config.d/*.conf
+
+
+# vim: ft=conf
