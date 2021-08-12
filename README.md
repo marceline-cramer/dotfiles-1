@@ -5,5 +5,5 @@ Just a fair warning, this is meant for my own personal use and I cannot guarante
 ```sh
 git clone https://github.com/lilithium-hydride/dotfiles ~/.dotfiles
 cd stow
-stow -vSt ~ zsh
+mkdir ~/.secret && touch ~/.secret/.secretsrc && stow-vSt ~ zsh
 ```
