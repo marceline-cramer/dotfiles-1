@@ -1,0 +1,56 @@
+colors:
+  primary:
+    background: '#1a1a2e'
+    foreground: '#dedbeb'
+  cursor:
+    text: CellForeground
+    cursor: '#dedbeb'
+  search:
+    matches:
+      foreground: '#000000'
+      background: '#ffffff'
+    focused_match:
+      foreground: '#ffffff'
+      background: '#000000'
+    bar:
+      background: '#1a1a2e'
+      foreground: '#dedbeb'
+    hints:
+      start:
+        foreground: '#1d1f21'
+        background: '#e9ff5e'
+      end:
+        foreground: '#e9ff5e'
+        background: '#1d1f21'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellBackground
+    background: CellForeground
+  normal:
+    black:    '#23223d'
+    red:      '#ed3f7f'
+    green:    '#84c49b'
+    yellow:   '#f6e08b'
+    blue:     '#a29dff'
+    magenta:  '#ed86ea'
+    cyan:     '#9ec5e6'
+    white:    '#d5cde8'
+  bright:
+    black:    '#2d2e51'
+    red:      '#fb5c8e'
+    green:    '#9fd3b3'
+    yellow:   '#fff0b8'
+    blue:     '#b2aeff'
+    magenta:  '#f09eed'
+    cyan:     '#aed9f6'
+    white:    '#e2d9f6'
+#indexed_color: [
+#    { index: 16, color: '#ff79c6' },
+#    { index: 17, color: '#f1fa8c' },
+#    { index: 18, color: '#3a3c4e' },
+#    { index: 19, color: '#4d4f68' },
+#    { index: 20, color: '#8be9fd' },
+#    { index: 21, color: '#fbfbfb' },
+#  ]
