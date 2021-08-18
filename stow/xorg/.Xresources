@@ -37,12 +37,12 @@ URxvt*.background: [80]#1a1a2e
 
 !! URxvt
 ! Appearance
-!Xft.dpi:		96
+Xft.dpi:		109
 Xft.antialias: true
 Xft.hinting: 1
 Xft.autohint: 0
 Xft.rgba: rgb
-Xft.hintstyle: hintslight
+Xft.hintstyle: hindmedium
 Xft.lcdfilter: lcddefault
 
 #define termfont	xft:'MesloLGS Nerd Font':pixelsize=15:antialias=true
