@@ -154,7 +154,7 @@ input type:pointer {
 	bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
 	# Start file browser
-	bindsym $mod+e exec dolphin
+	bindsym $mod+e exec pcmanfm-qt
 
 	# Start a terminal
 	bindsym $mod+Return exec $term
