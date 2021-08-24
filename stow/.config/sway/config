@@ -28,7 +28,7 @@ set $locker swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/Xaya.png fill
+output * bg ~/Pictures/Wallpapers/Allure.png fill
 #
 # Example configuration:
 #
