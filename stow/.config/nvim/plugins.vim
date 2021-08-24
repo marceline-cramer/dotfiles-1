@@ -78,5 +78,8 @@ Plug 'rust-lang/rust.vim'
 " RON Syntax
 Plug 'ron-rs/ron.vim'
 
+" GLSL Syntax
+Plug 'tikhomirov/vim-glsl'
+
 " Initialize plugin system
 call plug#end()
