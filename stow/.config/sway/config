@@ -25,6 +25,8 @@ set $menu rofi -show drun -theme base16-dracula | xargs swaymsg exec --
 
 set $locker swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36
 
+exec export _JAVA_AWT_WM_NONREPARENTING=1
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -101,6 +103,34 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 	pointer_accel -0.5
 }
 
+input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse" {
+	accel_profile "flat"
+	pointer_accel 0.1
+	natural_scroll enabled
+}
+
+input "7511:44311:LXD_Gaming_Mouse" {
+	accel_profile "flat"
+	pointer_accel -0.5
+	natural_scroll enabled
+}
+
+input "2:1:PS/2_Generic_Mouse" {
+	accel_profile "flat"
+	pointer_accel 0.1
+	natural_scroll enabled
+}
+
+input "1267:12717:MSFT0002:00_04F3:31AD_Mouse" {
+	accel_profile "flat"
+	pointer_accel 0.1
+	natural_scroll enabled
+}
+
+input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse_Keyboard" {
+	natural_scroll enabled
+}
+
 input "2:7:SynPS/2_Synaptics_TouchPad" {
 	tap enabled
 	natural_scroll enabled
@@ -110,6 +140,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 input type:mouse {
 	accel_profile "flat"
 	pointer_accel 0
+	natural_scroll enabled
 }
 
 input type:touchpad {
@@ -130,13 +161,19 @@ input type:pointer {
 # Basics:
 #
 	# Media
-	bindsym --locked XF86AudioRaiseVolume exec amixer -c 0 set Master 1%+
-	bindsym --locked XF86AudioLowerVolume exec amixer -c 0 set Master 1%-
-	bindsym --locked XF86AudioMute		  exec amixer -c 0 set Master toggle
-	bindsym --locked XF86AudioPlay		  exec playerctl play-pause
-	bindsym --locked XF86AudioNext		  exec playerctl next
-	bindsym --locked XF86AudioPrev		  exec playerctl previous
-	bindsym --locked XF86AudioStop		  exec playerctl stop
+	#bindsym --locked XF86AudioRaiseVolume exec amixer -c 0 set Master 1%+
+	#bindsym --locked XF86AudioLowerVolume exec amixer -c 0 set Master 1%-
+	#bindsym --locked XF86AudioMute		  exec amixer -c 0 set Master toggle
+	bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_05_00.6.analog-stereo +1%
+	bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_05_00.6.analog-stereo -1%
+	bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_05_00.6.analog-stereo toggle
+	bindsym --locked XF86AudioPlay 		exec playerctl play-pause
+	bindsym --locked XF86AudioNext 		exec playerctl next
+	bindsym --locked XF86AudioPrev 		exec playerctl previous
+	bindsym --locked XF86AudioStop 		exec playerctl stop
+	bindsym --locked XF86MonBrightnessDown 		exec sudo light -U 10
+	bindsym --locked XF86MonBrightnessUp 		exec sudo light -A 10
+	bindsym --locked 
 
 	#bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1%+
 	#bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1%-
@@ -153,8 +190,14 @@ input type:pointer {
 	# Screenshot and markup
 	bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
+	# Invert screen colors
+	bindsym $mod+Control+Shift+i exec wl-gammactl -b 2 -c '-1' &!
+
 	# Start file browser
 	bindsym $mod+e exec pcmanfm-qt
+
+	# Calculator
+	bindsym XF86Calculator exec qalculate-gtk
 
 	# Start a terminal
 	bindsym $mod+Return exec $term
@@ -165,6 +208,9 @@ input type:pointer {
 
 	# Start your launcher
 	bindsym --release Super_L exec $menu
+
+	# Bitwarden
+	 bindsym $mod+Control+Shift+b exec bwmenu --auto-lock 1800 -c 10 -- -theme base16-dracula
 
 	# Drag floating windows by holding down $mod and left mouse button.
 	# Resize them with right mouse button + $mod.
@@ -384,7 +430,7 @@ exec -- copyq --start-server enable
 #exec_always playerctld daemon
 #exec_always -- copyq --start-server enable
 exec_always pipewire
-exec_always -- foot -s
+exec_always foot -s
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
