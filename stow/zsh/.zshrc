@@ -35,6 +35,7 @@ export EDITOR="nvim"
 export MANPAGER="nvim -c 'set ft=man' -"
 export BAT_THEME="Dracula"
 export XCURSOR_SIZE=28
+export GTK_THEME=Layan-dark
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
