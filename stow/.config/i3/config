@@ -31,7 +31,7 @@ exec --no-startup-id xrandr --output DP-2 --dpi '109 x 118' --pos 0x0 --output H
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Anhedonia.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/alena-aenami-lost-1k_out.jpg
 
 ### Idle configuration
 #
@@ -409,6 +409,7 @@ for_window [class="qalculate-qt"] floating enable
 for_window [class="Picture in picture"] floating enable
 for_window [class="(?i)mplayer"] floating enable
 for_window [class="flameshot"] floating enable
+for_window [class="minecrust"] floating enable
 for_window [class="wired"] border pixel 0
 no_focus [class="wired"]
 for_window [class="GLava"] border pixel 0
