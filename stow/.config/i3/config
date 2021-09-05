@@ -448,8 +448,8 @@ exec --no-startup-id picom --experimental-backends -b
 exec_always --no-startup-id playerctld daemon
 #exec_always -- copyq --start-server enable
 exec_always --no-startup-id pipewire
-#exec_always --no-startup-id dunst
-exec_always --no-startup-id wired
+exec_always --no-startup-id dunst
+#exec_always --no-startup-id wired
 exec --no-startup-id xcape -e 'Super_L=Alt_L|F1'
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/Allure.png --desc NSA.Honeypot --fx
 

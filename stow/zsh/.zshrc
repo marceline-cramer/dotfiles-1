@@ -42,6 +42,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
 
 source ~/.secret/.secretsrc  # Holds API keys and other private stuff.
 
