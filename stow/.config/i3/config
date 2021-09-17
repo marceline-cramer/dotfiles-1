@@ -452,6 +452,7 @@ exec_always --no-startup-id dunst
 #exec_always --no-startup-id wired
 exec --no-startup-id xcape -e 'Super_L=Alt_L|F1'
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/Allure.png --desc NSA.Honeypot --fx
+exec --no-startup-id -- xinput --set-prop "Logitech G502 HERO Gaming Mouse" "libinput Accel Speed" "-.5"
 exec --no-startup-id xinput --set-prop "Logitech G502 HERO Gaming Mouse" "libinput Accel Speed" "-.5"
 #include /etc/sway/config.d/*
 #include ~/.config/sway/config.d/*.conf
