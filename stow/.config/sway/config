@@ -433,6 +433,7 @@ exec -- copyq --start-server enable
 #exec_always -- copyq --start-server enable
 exec_always pipewire
 exec_always foot -s
+exec_always kdeconnect-indicator
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
