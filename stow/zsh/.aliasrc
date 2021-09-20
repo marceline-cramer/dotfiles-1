@@ -17,6 +17,9 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias yay='paru'
+alias yya='yay'
+alias av='aurvote'
+alias untar='tar -xvf'
 function yaynotify {
 	if paru "$@"; then curl -s --form-string "token=$KEY_PUSHOVER_YAYNOTIFY_APP" --form-string "user=$KEY_PUSHOVER_YAYNOTIFY_USER" --form-string "message=Update completed successfully!" https://api.pushover.net/1/messages.json; else curl -s --form-string "token=$KEY_PUSHOVER_YAYNOTIFY_APP" --form-string "user=$KEY_PUSHOVER_YAYNOTIFY_USER" --form-string "message=Update failed." https://api.pushover.net/1/messages.json; fi
 }
@@ -30,5 +33,7 @@ alias pacbrowseall="pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse
 alias yaybrowseall="paru -Slq | fzf --preview 'paru -Si {}' --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
 alias weather="curl wttr.in/$LOCATION_WTTR\?tqF"
 alias weathersmall="curl wttr.in/$LOCATION_WTTR\?format=\"+%c+%l\n+Actual:++++++%t\n+Feels+like:++%f\n\""
+
+alias maccheck="ethtool --show-permaddr wlan0 && echo -n 'Current address:   ' && ip link show dev wlan0 | rg ether | awk '{print \$2}'"
 
 # vim: ft=zsh
