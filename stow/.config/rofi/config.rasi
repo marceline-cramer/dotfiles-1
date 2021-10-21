@@ -3,5 +3,8 @@
 configuration {
   show-icons:         true;
   icon-theme:         "Papirus";
+  filebrowser {
+	directory: "~";
+  }
 }
 @import "/usr/share/rofi/themes/glue_pro_blue.rasi"

@@ -76,7 +76,7 @@ drag_from_buttons=false
 [GeneralColors]
 window.color=#31313A
 base.color=#34343B
-alt.base.color=#31313A
+alt.base.color=#31313A00
 button.color=#44454B
 light.color=#44454B
 mid.light.color=#44454B

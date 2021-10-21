@@ -21,6 +21,11 @@ set $menu rofi -show drun -theme base16-dracula | xargs swaymsg exec --
 
 set $locker swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36
 
+exec pidof mylock > /dev/null || exec $locker
+exec pidof mylock > /dev/null || exec /home/$USER/.config/sway/loginlock
+
+
+
 exec export _JAVA_AWT_WM_NONREPARENTING=1
 
 ### Output configuration
@@ -101,7 +106,7 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 
 input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse" {
 	accel_profile "flat"
-	pointer_accel 0.1
+	pointer_accel -0.5
 	natural_scroll enabled
 }
 
@@ -162,9 +167,9 @@ input type:pointer {
 	#bindsym --locked XF86AudioRaiseVolume exec amixer -c 0 set Master 1%+
 	#bindsym --locked XF86AudioLowerVolume exec amixer -c 0 set Master 1%-
 	#bindsym --locked XF86AudioMute		  exec amixer -c 0 set Master toggle
-	bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_05_00.6.analog-stereo +1%
-	bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_05_00.6.analog-stereo -1%
-	bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_05_00.6.analog-stereo toggle
+	bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo +1%
+	bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo -1%
+	bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_06_00.6.analog-stereo toggle
 	bindsym --locked XF86AudioPlay 		exec playerctl play-pause
 	bindsym --locked XF86AudioNext 		exec playerctl next
 	bindsym --locked XF86AudioPrev 		exec playerctl previous
@@ -188,13 +193,15 @@ input type:pointer {
 	bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
 	# Invert screen colors
-	bindsym $mod+Control+Shift+i exec wl-gammactl -b 2 -c '-1' &!
+	bindsym $mod+Control+Shift+i exec wl-gammactl -b 2 -c '-1'
 
 	# Toggle backlight
 	bindsym $mod+p exec ~/.config/sway/backlighttoggle
 
 	# Start file browser
-	bindsym $mod+e exec pcmanfm-qt
+	#bindsym $mod+e exec pcmanfm-qt
+	bindsym $mod+e exec dolphin
+	bindsym $mod+Control+e exec rofi -show filebrowser -theme base16-dracula
 
 	# Calculator
 	bindsym XF86Calculator exec qalculate-gtk
@@ -434,6 +441,7 @@ exec -- copyq --start-server enable
 exec_always pipewire
 exec_always foot -s
 exec_always kdeconnect-indicator
+exec sudo light -S 80
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf

@@ -76,9 +76,11 @@
         "tooltip": false
     },
     "memory": {
+	    "interval": 2,
         "format": "{}% "
     },
 	"disk": {
+	    "interval": 15,
         "format": "{used}/{total} "
 	},
     "temperature": {
@@ -114,6 +116,7 @@
         "bat": "BAT1"
     },
     "network": {
+		"interval": 10,
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
@@ -153,3 +156,5 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
+
+# vim: ft=json
