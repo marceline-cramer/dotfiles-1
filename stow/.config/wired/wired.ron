@@ -15,7 +15,7 @@ min_window_height: 1,
 timeout: 2000,
 
 // Notification update frequency (ms). Also controls redraw rate. 16ms ~= 60hz.
-poll_interval: 16,
+poll_interval: 32,
 
 // Mouse shortcuts for interacting with notifications.
 // ││ Left    │ 1  ││ Right   │ 2  ││

@@ -45,11 +45,13 @@ Xft.rgba: rgb
 Xft.hintstyle: hindmedium
 Xft.lcdfilter: lcddefault
 
-#define termfont	xft:'MesloLGS Nerd Font':pixelsize=15:antialias=true
+!define termfont	xft:'MesloLGS Nerd Font':pixelsize=15:antialias=true
+#define termfont	xft:'TamzenForPowerline':pixelsize=12:antialias=false
+#define termfonti	xft:'UW Ttyp0':pixelsize:12:antialias=false
 URxvt.font: 			termfont
 URxvt.boldFont: 		termfont
-URxvt.italicFont: 		termfont
-URxvt.boldItalicfont: 	termfont
+URxvt.italicFont: 		termfonti
+URxvt.boldItalicfont: 	termfonti
 URxvt.letterSpace: 	-6
 URxvt.lineSpace: 	0
 URxvt.geometry: 	100x36
