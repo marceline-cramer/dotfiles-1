@@ -165,7 +165,8 @@ border_radius 0
 	bindsym $mod+Shift+s exec flameshot gui
 
 	# Start file browser
-	bindsym $mod+e exec pcmanfm-qt
+	#bindsym $mod+e exec pcmanfm-qt
+	bindsym $mod+e exec dolphin
 
 	# Open Bitwarden via rofi
 	bindsym $mod+Control+Shift+b exec bwmenu --auto-lock 1800 -c 10 -- -theme base16-dracula
