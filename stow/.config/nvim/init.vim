@@ -62,23 +62,26 @@ set t_AB=^[[48;5;%dm
 set t_AF=^[[38;5;%dm
 let base16colorspace=256  " Access colors present in 256 colorspace
 
-"syntax enable  " Using TreeSitter
+syntax enable  " Using TreeSitter
 "colorscheme dracula
 "colorscheme base16-dracula
+
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
 set termguicolors
 
-let g:mode = 'focus'
-let g:mode = 'mirtilo'
-colorscheme amora
+"let g:mode = 'focus'
+"let g:mode = 'mirtilo'
+"colorscheme amora
 
-hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
-hi LineNr ctermbg=NONE guibg=NONE guifg=#5d5f7f
-hi Comment guifg=#8689a8
+"hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
+"hi LineNr ctermbg=NONE guibg=NONE guifg=#5d5f7f
+"hi Comment guifg=#8689a8
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_theme='dracula_pro'
 "let g:airline_theme='amora'
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}

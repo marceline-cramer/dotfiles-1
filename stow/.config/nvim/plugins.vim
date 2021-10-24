@@ -54,6 +54,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " Dracula Theme
 Plug 'dracula/vim',{'as':'dracula'}
 
+" Dracula Pro Theme
+packadd! dracula_pro
+
 " Base16 Themes
 Plug 'chriskempson/base16-vim'
 
