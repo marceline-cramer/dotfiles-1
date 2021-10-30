@@ -9,11 +9,16 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  #- ~/.config/alacritty/amora.yml
+  - ~/.config/alacritty/amora.yml
   #- ~/.config/alacritty/base16-dracula-256-custom.yml
-  - ~/.config/alacritty/dracula.yml
-  #- ~/.config/alacritty/dracula2.yml
-  #- ~/.config/alacritty/dracula3.yml
+  #- ~/.config/alacritty/dracula-p.yml
+  #- ~/.config/alacritty/dracula-p-dark.yml
+  #- ~/.config/alacritty/dracula-p-red.yml
+  #- ~/.config/alacritty/chroma.yml
+  #- ~/.config/alacritty/Pnevma.yml
+  #- ~/.config/alacritty/Overnight_Slumber.yml
+  #- ~/.config/alacritty/SpaceGray_Eighties.yml
+  #- ~/.config/alacritty/SpaceGray_Eighties_Dull.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
