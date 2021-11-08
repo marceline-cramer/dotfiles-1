@@ -41,6 +41,7 @@ output * bg ~/Pictures/Wallpapers/Allure.png fill
 
 output eDP-1 position 0,0
 #output HDMI-A-2 position 2560,816
+output HDMI-A-1 position 0,-900
 
 ### Idle configuration
 #
@@ -98,6 +99,11 @@ smart_gaps false
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
+input type:keyboard {
+	xkb_layout us
+	xkb_options compose:ralt
+}
 
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 	accel_profile "flat"
