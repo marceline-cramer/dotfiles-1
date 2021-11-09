@@ -5,14 +5,14 @@ call plug#begin(stdpath('data') . '/plugged')
 
 
 " Deoplete
-"if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-"let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -21,8 +21,6 @@ Plug 'vim-airline/vim-airline-themes'
 " NERDTree
 "Plug 'preservim/nerdtree'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Vinegar File Browser
 Plug 'tpope/vim-vinegar'
@@ -37,7 +35,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'qpkorr/vim-bufkill'
 
 " Syntastic Syntax Checking
-"Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
+
+" YouCompleteMe Code Completion
+"Plug 'ycm-core/YouCompleteMe'
 
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -63,8 +64,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'KabbAmine/vCoolor.vim'
 
 " Color Viewer
-Plug 'gko/vim-coloresque'
-"Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " Smooth Scrolling
 Plug 'psliwka/vim-smoothie'
@@ -83,18 +83,6 @@ Plug 'ron-rs/ron.vim'
 
 " GLSL Syntax
 Plug 'tikhomirov/vim-glsl'
-
-" LaTeX Support
-Plug 'lervag/vimtex'
-
-" Live LaTeX Previewing
-Plug 'xuhdev/vim-latex-live-preview'
-
-" Goyo Writing
-Plug 'junegunn/goyo.vim'
-
-" Seoul256 Color Scheme (low contrast)
-Plug 'junegunn/seoul256.vim'
 
 " Initialize plugin system
 call plug#end()
