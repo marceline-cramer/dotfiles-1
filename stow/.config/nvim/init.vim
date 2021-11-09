@@ -91,19 +91,41 @@ let g:airline_skip_empty_sections = 1
 
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-call deoplete#custom#source('_', 'smart_case', v:true)
+"call deoplete#custom#source('_', 'smart_case', v:true)
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
 
 
 "let NERDTreeShowHidden=1
 
+let g:livepreview_previewer = 'zathura'
+
+let g:vimtex_grammar_texidote = {
+			\ 'jar': '/opt/textidote/textidote.jar',
+			\ 'args': '',
+			\}
+
+set spelllang=en
+set spellsuggest=best,9
+nnoremap <silent> <F11> :set spell!<cr>
+inoremap <silent> <F11> <C-O>:set spell!<cr>
+
+nnoremap k gk
+nnoremap j gj
+nnoremap <Up> g<Up>
+inoremap <Up> <C-O>g<Up>
+nnoremap <Down> g<Down>
+inoremap <Down> <C-O>g<Down>
+nnoremap <Home> g<Home>
+inoremap <Home> <C-O>g<Home>
+nnoremap <End> g<End>
+inoremap <End> <C-O>g<End>
 
 
 " Using Lua functions for Telescope
