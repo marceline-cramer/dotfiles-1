@@ -1,3 +1,4 @@
+# vim: ft=yaml
 colors:
   primary:
     background: '#1a1a2e'
