@@ -15,12 +15,25 @@ call plug#begin(stdpath('data') . '/plugged')
 "let g:deoplete#enable_at_startup = 1
 
 " Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+" Galaxyline
+"Plug 'glepnir/galaxyline.nvim'
+"Plug 'NTBBloodbath/galaxyline.nvim' " Fork w/ theming
+
+" Lualine
+Plug 'nvim-lualine/lualine.nvim'
+
+" Barbar (tabs, top bar)
+Plug 'romgrk/barbar.nvim'
 
 " NERDTree
 "Plug 'preservim/nerdtree'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" NvimTree
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Vinegar File Browser
 Plug 'tpope/vim-vinegar'
@@ -28,8 +41,16 @@ Plug 'tpope/vim-vinegar'
 " Tagbar
 Plug 'preservim/tagbar'
 
+" Keybind Display
+Plug 'folke/which-key.nvim'
+
 " Vim DevIcons
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons' " Snazzier fork
+
+" Git indicators in ruler
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Bufkill
 Plug 'qpkorr/vim-bufkill'
@@ -68,7 +89,8 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'gko/vim-coloresque'
 
 " Smooth Scrolling
-Plug 'psliwka/vim-smoothie'
+"Plug 'psliwka/vim-smoothie'
+Plug 'karb94/neoscroll.nvim'
 
 " Amora Theme
 Plug 'owozsh/amora'
@@ -97,8 +119,11 @@ Plug 'xuhdev/vim-latex-live-preview'
 " Goyo Writing
 Plug 'junegunn/goyo.vim'
 
-" Seoul256 Color Scheme (low contrast)
+" Seoul256 Color Scheme (low contrast, Goyo)
 Plug 'junegunn/seoul256.vim'
+
+" Rose Pine Color Scheme
+Plug 'rose-pine/neovim'
 
 " Initialize plugin system
 call plug#end()

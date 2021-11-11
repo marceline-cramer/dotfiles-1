@@ -29,8 +29,9 @@ set hidden
 set nocursorline
 set ts=4
 set sw=4
+set timeoutlen=200
 filetype plugin indent on
-nnoremap <SPACE> <Nop>  " Unmap Space key to use as leader
+"nnoremap <SPACE> <Nop>  " Unmap Space key to use as leader
 let mapleader=" "
 inoremap  <C-W>
 inoremap <C-Del> <C-O>dw
@@ -67,8 +68,16 @@ syntax enable  " Using TreeSitter
 "colorscheme base16-dracula
 
 let g:dracula_colorterm = 0
-colorscheme dracula_pro
+"colorscheme dracula_pro
 set termguicolors
+
+let g:seoul256_background = 234
+
+
+let g:rose_pine_variant = 'base'
+let g:rose_pine_disable_background = 1
+colorscheme rose-pine
+
 
 "let g:mode = 'focus'
 "let g:mode = 'mirtilo'
@@ -79,20 +88,20 @@ set termguicolors
 "hi Comment guifg=#8689a8
 
 " Airline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula_pro'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline_theme='dracula_pro'
 "let g:airline_theme='amora'
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_skip_empty_sections = 1
+"if !exists('g:airline_symbols')
+"	let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.space = "\ua0"
+"let g:airline_skip_empty_sections = 1
 
 
-set statusline+=%#warningmsg#
+"set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%*
 
 "call deoplete#custom#source('_', 'smart_case', v:true)
 
@@ -127,32 +136,167 @@ inoremap <Home> <C-O>g<Home>
 nnoremap <End> g<End>
 inoremap <End> <C-O>g<End>
 
+lua << EOF
+require('neoscroll').setup({
+    -- All these keys will be mapped to their corresponding default scrolling animation
+    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    hide_cursor = true,          -- Hide cursor while scrolling
+    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    easing_function = cubic,        -- Default easing function
+    pre_hook = nil,              -- Function to run before the scrolling animation starts
+    post_hook = nil,              -- Function to run after the scrolling animation ends
+})
+EOF
 
-" Using Lua functions for Telescope
-nnoremap <leader>,   <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>.   <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>:   <cmd>lua require('telescope.builtin').commands()<cr>
-nnoremap <leader>/b  <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>/i  <cmd>lua require('telescope.builtin').current_buffer_tags()<cr>
-nnoremap <leader>/I  <cmd>lua require('telescope.builtin').tags()<cr>
+" Which-Key Chording
+lua << EOF
+local wk = require("which-key")
+wk.register({
+	["<leader>b"]  = { name = "buffer" },
+	["<leader>bk"] = { "<cmd>BufferClose<cr>", "Close Open Buffer" },
+	["<leader>bw"] = { "<cmd>BD<cr>", "BufKill Close Open Buffer" },
+	["<leader>bn"] = { "<cmd>enew<cr>", "Open New Buffer" },
+	["<leader>b["]       = { "<cmd>bprev<cr>", "Open New Buffer" },
+	["<leader>b<Left>"]  = { "<cmd>bprev<cr>", "Open New Buffer" },
+	["<leader>b]"]       = { "<cmd>bnext<cr>", "Open New Buffer" },
+	["<leader>b<Right>"] = { "<cmd>bnext<cr>", "Open New Buffer" },
 
-"nnoremap <leader>bk  :bd<CR>
-nnoremap <leader>bk  :BD<CR>
-nnoremap <leader>b]  :bnext<CR>
-nnoremap <leader>b[  :bprev<CR>
-nnoremap <leader>bn  :enew<CR>
+	["<leader>w"]  = { name = "window/pane" },
+	["<leader>wk"] = { "<cmd>wincmd k<cr>", "Focus Up" },
+	["<leader>wj"] = { "<cmd>wincmd j<cr>", "Focus Down" },
+	["<leader>wh"] = { "<cmd>wincmd h<cr>", "Focus Left" },
+	["<leader>wl"] = { "<cmd>wincmd l<cr>", "Focus Right" },
+	["<leader>w<Up>"]    = { "<cmd>wincmd k<cr>", "Focus Up" },
+	["<leader>w<Down>"]  = { "<cmd>wincmd j<cr>", "Focus Down" },
+	["<leader>w<Left>"]  = { "<cmd>wincmd h<cr>", "Focus Left" },
+	["<leader>w<Right>"] = { "<cmd>wincmd l<cr>", "Focus Right" },
 
-nnoremap <leader>f. <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+	["<leader>f"]  = { name = "file" },
+	["<leader>ff"] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find Files" },
+	["<leader>fr"] = { "<cmd>lua require('telescope.builtin').oldfiles()<cr>", "Recent Files" },
+	["<leader>fg"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Grep Through Files" },
 
-nnoremap <leader>/  <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>x  <cmd>lua require('telescope.builtin').commands()<cr>
+	["<leader>o"]  =  { name = "open" },
+	["<leader>op"] = { "<cmd>NvimTreeToggle<cr>", "Toggle File Tree" },
+	["<leader>op"] = { "<cmd>terminal<cr>", "Open Terminal Buffer" },
+	["<leader>om"] = { "<cmd>lua require('telescope.builtin').tags()<cr>", "Tags Search" },
 
-nnoremap <leader>op  :Explore<CR>
-nnoremap <leader>on  :Explore<CR>
-nnoremap <leader>ot  :terminal<CR>
+	["<leader>h"] = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help" },
+	["<leader>."] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find Files" },
+	["<leader>,"] = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "Find Buffers" },
+	["<leader>x"] = { "<cmd>lua require('telescope.builtin').commands()<cr>", "Execute Command" },
+	["<leader>/"] = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "Search Open Buffer" },
+})
+EOF
+
+
+" Lualine Configuration
+lua << EOF
+require'lualine'.setup {
+	options = {
+		fmt = string.lower,
+		theme = 'rose-pine',
+		icons_enabled = true,
+		theme = 'auto',
+		component_separators = { left = '│', right = '│'},
+		section_separators = { left = ' ', right = ' '},
+		disabled_filetypes = {},
+		always_divide_middle = true,
+	},
+	sections = {lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end}},
+				lualine_b = {'branch', 'diff', {'diagnostics', 
+												sources={'coc', 'nvim_lsp'}}},
+				lualine_c = {'filename'},
+				lualine_x = {'encoding', 'fileformat', 'filetype'},
+				lualine_y = {'progress'},
+				lualine_z = {'location'}
+    },
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {'filename'},
+		lualine_x = {'location'},
+		lualine_y = {},
+		lualine_z = {}
+	},
+	tabline = {
+	--	lualine_a = {'buffers'},
+	--	lualine_b = {},
+	--	lualine_c = {},
+	--	lualine_x = {},
+	--	lualine_y = {},
+	--	lualine_z = {'tabs'},
+	},
+	extensions = {},
+}
+EOF
+
+" Gitsigns Configuration
+lua << EOF
+require('gitsigns').setup()
+EOF
+
+" Which-Key Configuration
+lua << EOF
+	require("which-key").setup {
+		
+	}
+EOF
+
+" File Tree Configuration
+lua << EOF
+require'nvim-tree'.setup {
+	disable_netrw       = true,
+	hijack_netrw        = true,
+	open_on_setup       = false,
+	ignore_ft_on_setup  = {},
+	auto_close          = false,
+	open_on_tab         = false,
+	hijack_cursor       = false,
+	update_cwd          = false,
+	update_to_buf_dir   = {
+		enable = true,
+		auto_open = true,
+	},
+	diagnostics = {
+		enable = false,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		}
+	},
+	update_focused_file = {
+		enable      = false,
+		update_cwd  = false,
+		ignore_list = {}
+	},
+	system_open = {
+	cmd  = nil,
+	args = {}
+	},
+	filters = {
+		dotfiles = false,
+		custom = {}
+	},
+	view = {
+		width = 30,
+		height = 30,
+		hide_root_folder = false,
+		side = 'left',
+		auto_resize = false,
+		mappings = {
+			custom_only = false,
+			list = {}
+		}
+	}
+}
+EOF
 
 " Telescope Configuration
 lua << EOF
