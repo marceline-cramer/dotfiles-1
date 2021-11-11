@@ -182,7 +182,7 @@ wk.register({
 
 	["<leader>o"]  =  { name = "open" },
 	["<leader>op"] = { "<cmd>NvimTreeToggle<cr>", "Toggle File Tree" },
-	["<leader>op"] = { "<cmd>terminal<cr>", "Open Terminal Buffer" },
+	["<leader>ot"] = { "<cmd>terminal<cr>", "Open Terminal Buffer" },
 	["<leader>om"] = { "<cmd>lua require('telescope.builtin').tags()<cr>", "Tags Search" },
 
 	["<leader>h"] = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help" },

@@ -1,7 +1,9 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: BitstreamVeraSansMono Nerd Font;
+	/*font-family: BitstreamVeraSansMono Nerd Font;*/
+	/*font-family: SFMono Nerd Font Mono;*/
+	font-family: SauceCodePro Nerd Font;
 	font-size: 12px;
 	min-height: 16px;
 }
@@ -42,26 +44,30 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 0;
 	border-radius: 26px;
-	background: #282a36;
-	/*transition: none;*/
+	/*background: #282a36;*/
+	background: #191724;
+	/*transition: width 2s;*/
 }
 
 #workspaces button {
 	transition: none;
-	color: #f8f8f2;
+	/*color: #f8f8f2;*/
+	color: #e0def4;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.focused {
-	color: #9aedfe;
+	/*color: #9aedfe;*/
+	color: #9ccfd8;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: #ff79c6;
+	/*color: #ff79c6;*/
+	color: #c4a7e7;
 }
 
 #custom-media {
@@ -75,7 +81,8 @@ window#waybar.PCSX2 #window {
 	background: #282a36;
 	transition: none;
 	color: #4d4d4d;
-	background: #5af78e;
+	/*background: #5af78e;*/
+	background: #7fb59f;
 }
 
 #mpd.disconnected,
@@ -92,7 +99,8 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	background: #282a36;
+	/*background: #282a36;*/
+	background: #191724;
 }
 
 #idle_inhibitor {
@@ -104,7 +112,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #f8f8f2;
-	background: #282a36;
+	/*background: #282a36;*/
+	background: #191724;
 }
 
 #network {
@@ -116,7 +125,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #ff92df;
+	/*background: #ff92df;*/
+	background: #ebbcba;
 }
 
 #pulseaudio {
@@ -128,7 +138,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #d6acff;
+	/*background: #d6acff;*/
+	background: #c4a7e7;
 }
 
 #battery {
@@ -141,7 +152,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #d6acff;
+	/*background: #d6acff;*/
+	background: #c4a7e7;
 }
 
 #temperature {
@@ -154,7 +166,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #ff6e6e;
+	/*background: #ff6e6e;*/
+	background: #eb6f92;
 }
 
 #disk {
@@ -166,7 +179,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #69ff94;
+	/*background: #69ff94;*/
+	background: #7fb59f;
 }
 
 #cpu {
@@ -178,7 +192,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #f1fa8c;
+	/*background: #f1fa8c;*/
+	background: #f6c177;
 }
 
 #memory {
@@ -190,7 +205,8 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #4d4d4d;
-	background: #a4ffff;
+	/*background: #a4ffff;*/
+	background: #9ccfd8;
 }
 
 #clock {
@@ -203,5 +219,6 @@ window#waybar.PCSX2 #window {
 	border-radius: 26px;
 	transition: none;
 	color: #f8f8f2;
-	background: #282a36;
+	/*background: #282a36;*/
+	background: #191724;
 }
