@@ -174,7 +174,7 @@ font:
 
   # Point size
   #size: 10  # SauceCodePro Nerd Font
-  size: 10.5  # TamzenForPowerline + UW Ttyp0 Italics
+  #size: 10.5  # TamzenForPowerline + UW Ttyp0 Italics
   #size: 10.5  # unscii
 
   # Offset is the extra space around each character. `offset.y` can be thought
