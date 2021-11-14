@@ -7,4 +7,5 @@ configuration {
 	directory: "~";
   }
 }
-@import "/usr/share/rofi/themes/glue_pro_blue.rasi"
+/*@import "/usr/share/rofi/themes/glue_pro_blue.rasi"*/
+@import "~/.config/rofi/rosepine.rasi"
