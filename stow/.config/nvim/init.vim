@@ -52,12 +52,9 @@ noremap <C-H> :bprev<CR>
 noremap <C-L> :bnext<CR>
 
 
-nnoremap <F8> :TagbarToggle<CR>
-
-
-
-source ~/.config/nvim/plugins.vim
-
+"source ~/.config/nvim/plugins.vim
+lua require('plugins')
+lua require'nvim-tree'.setup {}  " This is needed here for nvim-tree to work, for some reason.
 
 " Vim Theme
 set t_Co=256
@@ -65,7 +62,7 @@ set t_AB=^[[48;5;%dm
 set t_AF=^[[38;5;%dm
 let base16colorspace=256  " Access colors present in 256 colorspace
 
-syntax enable  " Using TreeSitter
+"syntax enable  " Comment out when using Treesitter
 "colorscheme dracula
 "colorscheme base16-dracula
 
@@ -75,45 +72,23 @@ set termguicolors
 
 let g:seoul256_background = 234
 
-
-let g:rose_pine_variant = 'base'
-let g:rose_pine_disable_background = 1
-colorscheme rose-pine
-
-
 "let g:mode = 'focus'
 "let g:mode = 'mirtilo'
 "colorscheme amora
+
+
+let g:rose_pine_varient = 'base'
+let g:rose_pine_disable_background = 1
+colorscheme rose-pine
+
 
 "hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
 "hi LineNr ctermbg=NONE guibg=NONE guifg=#5d5f7f
 "hi Comment guifg=#8689a8
 
-" Airline config
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
-"let g:airline_theme='dracula_pro'
-"let g:airline_theme='amora'
-"if !exists('g:airline_symbols')
-"	let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
-"let g:airline_skip_empty_sections = 1
 
+let g:vista_sidebar_position = 'vertical topleft'
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"call deoplete#custom#source('_', 'smart_case', v:true)
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-
-
-"let NERDTreeShowHidden=1
 
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_engine = 'xelatex'
@@ -124,6 +99,8 @@ let g:vimtex_grammar_texidote = {
 			\}
 
 
+
+"let g:coc_global_extensions = ['coc-json', 'coc-rust-analyzer', 'coc-vimtex', 'coc-java'] 
 
 set shortmess+=c
 
@@ -175,7 +152,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup mygroup
   autocmd!
@@ -263,21 +240,26 @@ inoremap <Home> <C-O>g<Home>
 nnoremap <End> g<End>
 inoremap <End> <C-O>g<End>
 
-lua << EOF
-require('neoscroll').setup({
-    -- All these keys will be mapped to their corresponding default scrolling animation
-    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-    hide_cursor = true,          -- Hide cursor while scrolling
-    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-    easing_function = cubic,        -- Default easing function
-    pre_hook = nil,              -- Function to run before the scrolling animation starts
-    post_hook = nil,              -- Function to run after the scrolling animation ends
-})
-EOF
+inoremap <M-C-S-Down> <C-O>:m+1<cr>
+inoremap <M-C-S-Up> <C-O>:m-2<cr>
+
+
+
+"lua << EOF
+"require('neoscroll').setup({
+"    -- All these keys will be mapped to their corresponding default scrolling animation
+"    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+"                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+"    hide_cursor = true,          -- Hide cursor while scrolling
+"    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+"    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+"    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+"    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+"    easing_function = cubic,        -- Default easing function
+"    pre_hook = nil,              -- Function to run before the scrolling animation starts
+"    post_hook = nil,              -- Function to run after the scrolling animation ends
+"})
+"EOF
 
 " Which-Key Chording
 lua << EOF
@@ -310,7 +292,8 @@ wk.register({
 	["<leader>o"]  =  { name = "open" },
 	["<leader>op"] = { "<cmd>NvimTreeToggle<cr>", "Toggle File Tree" },
 	["<leader>ot"] = { "<cmd>terminal<cr>", "Open Terminal Buffer" },
-	["<leader>om"] = { "<cmd>lua require('telescope.builtin').tags()<cr>", "Tags Search" },
+	--["<leader>om"] = { "<cmd>lua require('telescope.builtin').tags()<cr>", "Tags Search" },
+	["<leader>om"] = { "<cmd>Vista!!<cr>", "Tags Search" },
 
 	["<leader>h"] = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help" },
 	["<leader>."] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find Files" },
@@ -362,143 +345,53 @@ require'lualine'.setup {
 }
 EOF
 
-" Gitsigns Configuration
-lua << EOF
-require('gitsigns').setup()
-EOF
-
-" Which-Key Configuration
-lua << EOF
-	require("which-key").setup {
-		
-	}
-EOF
-
 " File Tree Configuration
-lua << EOF
-require'nvim-tree'.setup {
-	disable_netrw       = true,
-	hijack_netrw        = true,
-	open_on_setup       = false,
-	ignore_ft_on_setup  = {},
-	auto_close          = false,
-	open_on_tab         = false,
-	hijack_cursor       = false,
-	update_cwd          = false,
-	update_to_buf_dir   = {
-		enable = true,
-		auto_open = true,
-	},
-	diagnostics = {
-		enable = false,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		}
-	},
-	update_focused_file = {
-		enable      = false,
-		update_cwd  = false,
-		ignore_list = {}
-	},
-	system_open = {
-	cmd  = nil,
-	args = {}
-	},
-	filters = {
-		dotfiles = false,
-		custom = {}
-	},
-	view = {
-		width = 30,
-		height = 30,
-		hide_root_folder = false,
-		side = 'left',
-		auto_resize = false,
-		mappings = {
-			custom_only = false,
-			list = {}
-		}
-	}
-}
-EOF
-
-" Telescope Configuration
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-	mappings = {
-      i = {
-        ["<esc>"] = actions.close
-      },
-    },
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-	  '--hidden',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
-    },
-    prompt_prefix = "> ",
-    selection_caret = "> ",
-    entry_prefix = "  ",
-    initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    layout_config = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
-    },
-    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
-    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    winblend = 0,
-    border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-    color_devicons = true,
-    use_less = true,
-    path_display = {},
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
-  }
-}
-EOF
-
-" TreeSitter Configuration
-"set foldmethod=expr
-"set foldexpr=nvim_treesitter#foldexpr()
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = "", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ignore_install = { "" }, -- List of parsers to ignore installing
-	highlight = {
-		enable = true,              -- false will disable the whole extension
-		disable = { "" },  -- list of language that will be disabled
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
-    	additional_vim_regex_highlighting = false,
-	},
-	indent = {
-		enable = true
-	}
-}
-EOF
-
+"lua << EOF
+"require'nvim-tree'.setup {
+"	disable_netrw       = true,
+"	hijack_netrw        = true,
+"	open_on_setup       = false,
+"	ignore_ft_on_setup  = {},
+"	auto_close          = false,
+"	open_on_tab         = false,
+"	hijack_cursor       = false,
+"	update_cwd          = false,
+"	update_to_buf_dir   = {
+"		enable = true,
+"		auto_open = true,
+"	},
+"	diagnostics = {
+"		enable = false,
+"		icons = {
+"			hint = "",
+"			info = "",
+"			warning = "",
+"			error = "",
+"		}
+"	},
+"	update_focused_file = {
+"		enable      = false,
+"		update_cwd  = false,
+"		ignore_list = {}
+"	},
+"	system_open = {
+"	cmd  = nil,
+"	args = {}
+"	},
+"	filters = {
+"		dotfiles = false,
+"		custom = {}
+"	},
+"	view = {
+"		width = 30,
+"		height = 30,
+"		hide_root_folder = false,
+"		side = 'left',
+"		auto_resize = false,
+"		mappings = {
+"			custom_only = false,
+"			list = {}
+"		}
+"	}
+"}
+"EOF
