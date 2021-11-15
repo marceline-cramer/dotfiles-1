@@ -11,7 +11,46 @@ return require('packer').startup(function()
 	-- Status Line: Lualine
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+		requires = {'kyazdani42/nvim-web-devicons', opt = true},
+		config = function()
+			require'lualine'.setup {
+				options = {
+					fmt = string.lower,
+					theme = 'rose-pine',
+					icons_enabled = true,
+					theme = 'auto',
+					component_separators = { left = '│', right = '│'},
+					section_separators = { left = ' ', right = ' '},
+					disabled_filetypes = {},
+					always_divide_middle = true,
+				},
+				sections = {lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end}},
+										lualine_b = {'branch', 'diff', {'diagnostics', 
+																										sources={'coc', 'nvim_lsp'}}},
+										lualine_c = {'filename'},
+										lualine_x = {'encoding', 'fileformat', 'filetype'},
+										lualine_y = {'progress'},
+										lualine_z = {'location'}
+			  },
+				inactive_sections = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = {'filename'},
+					lualine_x = {'location'},
+					lualine_y = {},
+					lualine_z = {}
+				},
+				tabline = {
+				--	lualine_a = {'buffers'},
+				--	lualine_b = {},
+				--	lualine_c = {},
+				--	lualine_x = {},
+				--	lualine_y = {},
+				--	lualine_z = {'tabs'},
+				},
+				extensions = {},
+			}
+		end
 	}
 
 	-- Tab Bar: Barbar
@@ -82,8 +121,8 @@ return require('packer').startup(function()
 	-- Symbol Pane: vista.vim
 	use {
 		'liuchengxu/vista.vim', 
-		--opt = true, 
-		--cmd = {'Vista', 'Vista!', 'Vista!!'},
+		opt = true, 
+		cmd = {'Vista', 'Vista!', 'Vista!!'},
 		--config = function()
 		--	vim.g.vista_sidebar_position = 'vertical topleft'
 		--end
@@ -92,11 +131,11 @@ return require('packer').startup(function()
 	-- Keybind Viewer: whick-key.nvim
 	use {
 		'folke/which-key.nvim',
-		--config = function()
-		--	require('which-key').setup {
-		--		
-		--	}
-		--end
+		config = function()
+			require('which-key').setup {
+				
+			}
+		end
 	}
 
 	-- Git Indicators: gitsigns.nvim
@@ -106,7 +145,70 @@ return require('packer').startup(function()
 			'nvim-lua/plenary.nvim'
 		},
 		config = function()
-			require('gitsigns').setup()  -- Is this even getting called now? Plugin suddenly stopped displaying anything.
+			require('gitsigns').setup {
+			  signs = {
+			    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+			    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+			    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+			    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+			    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+			  },
+			  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+			  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+			  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+			  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+			  keymaps = {
+			    -- Default keymap options
+			    noremap = true,
+			
+			    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+			    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+			
+			    ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+			    ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+			    ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+			    ['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+			    ['v <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+			    ['n <leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+			    ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+			    ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+			    ['n <leader>hS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
+			    ['n <leader>hU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
+			
+			    -- Text objects
+			    ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+			    ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
+			  },
+			  watch_gitdir = {
+			    interval = 1000,
+			    follow_files = true
+			  },
+			  attach_to_untracked = true,
+			  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+			  current_line_blame_opts = {
+			    virt_text = true,
+			    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+			    delay = 1000,
+			  },
+			  current_line_blame_formatter_opts = {
+			    relative_time = false
+			  },
+			  sign_priority = 6,
+			  update_debounce = 100,
+			  status_formatter = nil, -- Use default
+			  max_file_length = 40000,
+			  preview_config = {
+			    -- Options passed to nvim_open_win
+			    border = 'single',
+			    style = 'minimal',
+			    relative = 'cursor',
+			    row = 0,
+			    col = 1
+			  },
+			  yadm = {
+			    enable = false
+			  },
+			}
 		end
 	}
 
@@ -142,7 +244,7 @@ return require('packer').startup(function()
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} },
-		config = function()
+		config = function()  -- Nothing here is actually applied.
 			local actions = require('telescope.actions')
 			require('telescope').setup{
 				defaults = {
@@ -225,7 +327,9 @@ return require('packer').startup(function()
 		'neoclide/coc.nvim',
 		branch = 'release',
 		run = ':CocUpdateSync',
-		config = 'vim.cmd[[let g:coc_global_extensions = ["coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java"]]]'
+		config = function()
+			vim.cmd('let g:coc_global_extensions = ["coc-snippets", "coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java"]')
+		end
 	}
 
 	-- Writing Mode: goyo.vim
@@ -239,7 +343,7 @@ return require('packer').startup(function()
 	use {
 		'lervag/vimtex',
 		opt = true,
-		ft = {'tex'}  -- Packer won't lazy load this anymore.
+		ft = {'tex'}
 	}
 	
 	-- Live LaTeX Previews: vim-latex-live-preview
@@ -286,11 +390,11 @@ return require('packer').startup(function()
 	use ({
 		'rose-pine/neovim',
 		as = 'rose-pine',
-		--config = function()  -- Doing things here does not work
-		--	vim.g.rose_pine_variant = 'base'
-		--	vim.g.rose_pine_disable_background = 1
-		--	vim.cmd('colorscheme rose-pine')
-		--end
+		config = function()
+			vim.g.rose_pine_variant = 'base'
+			vim.g.rose_pine_disable_background = 1
+			vim.cmd('colorscheme rose-pine')
+		end
 	})
 
 

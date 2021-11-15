@@ -135,6 +135,7 @@ font:
     #family: UW Ttyp0
     #family: MesloLGS Nerd Font
     #family: BitstreamVeraSansMono Nerd Font
+    #family: SF Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -174,8 +175,9 @@ font:
 
   # Point size
   #size: 10  # SauceCodePro Nerd Font
-  #size: 10.5  # TamzenForPowerline + UW Ttyp0 Italics
+  size: 10.5  # TamzenForPowerline + UW Ttyp0 Italics
   #size: 10.5  # unscii
+  #size: 9.5  # SF Mono
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -189,6 +191,9 @@ font:
   #offset:  # unscii
     #x: -1
     #y: -2
+  #offset:  # SF Mono
+    #x: 2 
+    #y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the

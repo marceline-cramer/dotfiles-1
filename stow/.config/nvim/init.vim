@@ -29,8 +29,8 @@ set hidden
 set nocursorline
 set ts=4
 set sw=4
-set timeoutlen=200
 set cmdheight=2
+set timeoutlen=200
 set updatetime=300
 filetype plugin indent on
 "nnoremap <SPACE> <Nop>  " Unmap Space key to use as leader
@@ -51,67 +51,62 @@ imap <M-F1> <NOP>
 noremap <C-H> :bprev<CR>
 noremap <C-L> :bnext<CR>
 
+" Set both for smart case-insensitivity
+set ignorecase
+set smartcase
+
 
 "source ~/.config/nvim/plugins.vim
 lua require('plugins')
-lua require'nvim-tree'.setup {}  " This is needed here for nvim-tree to work, for some reason.
 
 " Vim Theme
 set t_Co=256
 set t_AB=^[[48;5;%dm
 set t_AF=^[[38;5;%dm
 let base16colorspace=256  " Access colors present in 256 colorspace
-
-"syntax enable  " Comment out when using Treesitter
-"colorscheme dracula
-"colorscheme base16-dracula
-
-let g:dracula_colorterm = 0
-"colorscheme dracula_pro
 set termguicolors
 
-let g:seoul256_background = 234
+"syntax enable  " Comment out when using Treesitter
+
+
+"colorscheme dracula
+"colorscheme base16-dracula
+"colorscheme dracula_pro
+"let g:dracula_colorterm = 0
+
+
+let g:seoul256_background = 234  " Make seoul256 background less bright
 
 "let g:mode = 'focus'
 "let g:mode = 'mirtilo'
 "colorscheme amora
 
 
-let g:rose_pine_varient = 'base'
-let g:rose_pine_disable_background = 1
-colorscheme rose-pine
-
-
 "hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
-"hi LineNr ctermbg=NONE guibg=NONE guifg=#5d5f7f
-"hi Comment guifg=#8689a8
+"hi LineNr ctermbg=NONE guibg=NONE
 
 
-let g:vista_sidebar_position = 'vertical topleft'
+let g:vista_sidebar_position = 'vertical topleft'  " Must be set here instead of plugins.lua
 
 
 let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'xelatex'
+let g:livepreview_engine = 'xelatex'  " xelatex, pdflatex, or lualatex
 
 let g:vimtex_grammar_texidote = {
 			\ 'jar': '/opt/textidote/textidote.jar',
 			\ 'args': '',
 			\}
 
+" Don't garbge manpages
+autocmd FileType man setlocal nogdefault
 
 
-"let g:coc_global_extensions = ['coc-json', 'coc-rust-analyzer', 'coc-vimtex', 'coc-java'] 
 
-set shortmess+=c
+""" Coc Configurations
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set shortmess+=c  " Don't pass messages to \|ins-completion-menu\|.
+
+set signcolumn=yes  " Show sign column next to number column
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -152,7 +147,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup mygroup
   autocmd!
@@ -222,6 +217,44 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Show documentation when hovering cursor
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+
+
+""" Coc-Snippets Configuration
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+
 
 
 set spelllang=en
@@ -243,23 +276,6 @@ inoremap <End> <C-O>g<End>
 inoremap <M-C-S-Down> <C-O>:m+1<cr>
 inoremap <M-C-S-Up> <C-O>:m-2<cr>
 
-
-
-"lua << EOF
-"require('neoscroll').setup({
-"    -- All these keys will be mapped to their corresponding default scrolling animation
-"    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-"                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-"    hide_cursor = true,          -- Hide cursor while scrolling
-"    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-"    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-"    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-"    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-"    easing_function = cubic,        -- Default easing function
-"    pre_hook = nil,              -- Function to run before the scrolling animation starts
-"    post_hook = nil,              -- Function to run after the scrolling animation ends
-"})
-"EOF
 
 " Which-Key Chording
 lua << EOF
@@ -302,96 +318,3 @@ wk.register({
 	["<leader>/"] = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "Search Open Buffer" },
 })
 EOF
-
-
-" Lualine Configuration
-lua << EOF
-require'lualine'.setup {
-	options = {
-		fmt = string.lower,
-		theme = 'rose-pine',
-		icons_enabled = true,
-		theme = 'auto',
-		component_separators = { left = '│', right = '│'},
-		section_separators = { left = ' ', right = ' '},
-		disabled_filetypes = {},
-		always_divide_middle = true,
-	},
-	sections = {lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end}},
-				lualine_b = {'branch', 'diff', {'diagnostics', 
-												sources={'coc', 'nvim_lsp'}}},
-				lualine_c = {'filename'},
-				lualine_x = {'encoding', 'fileformat', 'filetype'},
-				lualine_y = {'progress'},
-				lualine_z = {'location'}
-    },
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {'filename'},
-		lualine_x = {'location'},
-		lualine_y = {},
-		lualine_z = {}
-	},
-	tabline = {
-	--	lualine_a = {'buffers'},
-	--	lualine_b = {},
-	--	lualine_c = {},
-	--	lualine_x = {},
-	--	lualine_y = {},
-	--	lualine_z = {'tabs'},
-	},
-	extensions = {},
-}
-EOF
-
-" File Tree Configuration
-"lua << EOF
-"require'nvim-tree'.setup {
-"	disable_netrw       = true,
-"	hijack_netrw        = true,
-"	open_on_setup       = false,
-"	ignore_ft_on_setup  = {},
-"	auto_close          = false,
-"	open_on_tab         = false,
-"	hijack_cursor       = false,
-"	update_cwd          = false,
-"	update_to_buf_dir   = {
-"		enable = true,
-"		auto_open = true,
-"	},
-"	diagnostics = {
-"		enable = false,
-"		icons = {
-"			hint = "",
-"			info = "",
-"			warning = "",
-"			error = "",
-"		}
-"	},
-"	update_focused_file = {
-"		enable      = false,
-"		update_cwd  = false,
-"		ignore_list = {}
-"	},
-"	system_open = {
-"	cmd  = nil,
-"	args = {}
-"	},
-"	filters = {
-"		dotfiles = false,
-"		custom = {}
-"	},
-"	view = {
-"		width = 30,
-"		height = 30,
-"		hide_root_folder = false,
-"		side = 'left',
-"		auto_resize = false,
-"		mappings = {
-"			custom_only = false,
-"			list = {}
-"		}
-"	}
-"}
-"EOF
