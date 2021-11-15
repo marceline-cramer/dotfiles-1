@@ -12,8 +12,9 @@ Meant for my own personal use. Feel free to take whatever from here, but don't e
 ### Simple Clone & Unstow
 ```sh
 git clone https://github.com/lilithium-hydride/dotfiles ~/.dotfiles
-cd stow
-mkdir ~/.secret; touch ~/.secret/.secretsrc; stow -vSt ~ zsh
+cd ~/.dotfiles/stow
+mkdir ~/.secret; touch ~/.secret/.secretsrc
+stow -vSt ~ zsh
 stow -vSt ~ git
 stow -vSt ~ xorg
 stow -vSt ~/.config .config
@@ -25,4 +26,11 @@ stow -vSt ~/.config .config
 git clone https://github.com/lilithium-hydride/dotfiles ~/.dotfiles
 chmod +x ~/.dotfiles/install.sh
 ~/.dotfiles/install.sh
+```
+
+### Notes
+```sh
+# Add new item under ~/.config
+mv ~/.config/fileorfolder ~/.dotfiles/stow/.config/
+stow -vSt ~/.config ~/.dotfiles/stow/.config
 ```
