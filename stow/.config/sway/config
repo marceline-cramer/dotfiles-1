@@ -21,6 +21,10 @@ set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
 
 set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36
 
+exec export XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+
 exec pidof mylock > /dev/null || exec $locker
 exec pidof mylock > /dev/null || exec /home/$USER/.config/sway/loginlock
 
