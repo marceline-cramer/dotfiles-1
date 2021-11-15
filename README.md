@@ -3,7 +3,7 @@
 **Obligatory \*nix user dotfiles repository.**
 
 ![i3 Preview Image](preview_i3.png)
-*Very old screenshot, needs updating*
+*Curent i3 setup. Sway looks much nicer, need to add that.*
 
 
 ## Installation
