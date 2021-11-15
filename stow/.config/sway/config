@@ -40,7 +40,6 @@ output * bg ~/Pictures/Wallpapers/blockwavemoon_blurred.png fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 output eDP-1 position 0,0
-#output HDMI-A-2 position 2560,816
 output HDMI-A-1 position 0,-900
 
 ### Idle configuration
@@ -108,34 +107,35 @@ input type:keyboard {
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 	accel_profile "flat"
 	pointer_accel -0.5
+	natural_scroll disabled
 }
 
 input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse" {
 	accel_profile "flat"
 	pointer_accel -0.5
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input "7511:44311:LXD_Gaming_Mouse" {
 	accel_profile "flat"
 	pointer_accel -0.5
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input "2:1:PS/2_Generic_Mouse" {
 	accel_profile "flat"
 	pointer_accel 0.1
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input "1267:12717:MSFT0002:00_04F3:31AD_Mouse" {
 	accel_profile "flat"
 	pointer_accel 0.1
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse_Keyboard" {
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
@@ -148,7 +148,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 input type:mouse {
 	accel_profile "flat"
 	pointer_accel 0
-	natural_scroll enabled
+	natural_scroll disabled
 }
 
 input type:touchpad {
@@ -158,11 +158,6 @@ input type:touchpad {
 	middle_emulation enabled
 }
 
-input type:pointer {
-	tap enabled
-	natural_scroll enabled
-	dwt enabled
-}
 
 ### Key bindings
 
@@ -170,12 +165,15 @@ input type:pointer {
 # Basics:
 #
 	# Media
-	#bindsym --locked XF86AudioRaiseVolume exec amixer -c 0 set Master 1%+
-	#bindsym --locked XF86AudioLowerVolume exec amixer -c 0 set Master 1%-
-	#bindsym --locked XF86AudioMute		  exec amixer -c 0 set Master toggle
-	bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo +1%
-	bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo -1%
-	bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_06_00.6.analog-stereo toggle
+	#bindsym --locked XF86AudioRaiseVolume exec amixer set Master 1+  # These need alsa-utils and are buggy
+	#bindsym --locked XF86AudioLowerVolume exec amixer set Master 1-
+	#bindsym --locked XF86AudioMute		  exec amixer set Master toggle
+	bindsym --locked XF86AudioRaiseVolume exec pamixer -i 1  # These need pamixer and are not buggyy
+	bindsym --locked XF86AudioLowerVolume exec pamixer -d 1
+	bindsym --locked XF86AudioMute		  exec pamixer -t
+	#bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo +1%  # Restricted to one sink
+	#bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo -1%
+	#bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_06_00.6.analog-stereo toggle
 	bindsym --locked XF86AudioPlay 		exec playerctl play-pause
 	bindsym --locked XF86AudioNext 		exec playerctl next
 	bindsym --locked XF86AudioPrev 		exec playerctl previous
