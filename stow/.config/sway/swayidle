@@ -4,5 +4,49 @@ if [ pgrep swayidle > /tmp/swayidletest ]
 then 
 		echo swayidle_already_running
 else
-		swayidle -w timeout 1200 'swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36' timeout 1500 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -e -f -i ~/Pictures/Wallpapers/Allure.png -s tile --inside-color 282a36cc --inside-clear-color ffffa5cc --inside-ver-color d6acffcc --inside-wrong-color ff6e6ecc --key-hl-color 8be9fd --layout-border-color 00000000 --layout-bg-color 282a36cc --layout-text-color f8f8f2 --line-color 00000000 --line-clear-color 00000000 --line-caps-lock-color 00000000 --line-ver-color 00000000 --line-wrong-color 00000000 --ring-color f8f8f2cc --ring-clear-color ffffa5cc --ring-ver-color d6acffcc --ring-wrong-color ff6e6ecc --separator-color 282a36cc --text-color f8f8f2 --text-clear-color 282a36 --text-ver-color  282a36 --text-wrong-color 282a36'
+		swayidle -w timeout 1200 'set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
+--inside-color 191724cc \
+--inside-clear-color f6c177cc \
+--inside-ver-color c4a7e7cc \
+--inside-wrong-color eb6f92cc \
+--key-hl-color 9ccfd8 \
+--layout-border-color 00000000 \
+--layout-bg-color 282a191724cc \
+--layout-text-color e0def4 \
+--line-color 00000000 \
+--line-clear-color 00000000 \
+--line-caps-lock-color 00000000 \
+--line-ver-color 00000000 \
+--line-wrong-color 00000000 \
+--ring-color e0def4cc \
+--ring-clear-color f6c177cc \
+--ring-ver-color c4a7e7cc \
+--ring-wrong-color eb6f92cc \
+--separator-color 191724cc \
+--text-color e0def4 \
+--text-clear-color 191724 \
+--text-ver-color  191724 \
+--text-wrong-color 191724' timeout 1500 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
+--inside-color 191724cc \
+--inside-clear-color f6c177cc \
+--inside-ver-color c4a7e7cc \
+--inside-wrong-color eb6f92cc \
+--key-hl-color 9ccfd8 \
+--layout-border-color 00000000 \
+--layout-bg-color 282a191724cc \
+--layout-text-color e0def4 \
+--line-color 00000000 \
+--line-clear-color 00000000 \
+--line-caps-lock-color 00000000 \
+--line-ver-color 00000000 \
+--line-wrong-color 00000000 \
+--ring-color e0def4cc \
+--ring-clear-color f6c177cc \
+--ring-ver-color c4a7e7cc \
+--ring-wrong-color eb6f92cc \
+--separator-color 191724cc \
+--text-color e0def4 \
+--text-clear-color 191724 \
+--text-ver-color  191724 \
+--text-wrong-color 191724'
 fi
