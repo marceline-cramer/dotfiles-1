@@ -170,28 +170,28 @@ input "7511:44311:LXD_Gaming_Mouse" {
 	natural_scroll disabled
 }
 
-input "2:1:PS/2_Generic_Mouse" {
-	accel_profile "flat"
-	pointer_accel 0.1
-	natural_scroll disabled
-}
+#input "2:1:PS/2_Generic_Mouse" {
+#	accel_profile "flat"
+#	pointer_accel 0.1
+#	natural_scroll disabled
+#}
 
-input "1267:12717:MSFT0002:00_04F3:31AD_Mouse" {
-	accel_profile "flat"
-	pointer_accel 0.1
-	natural_scroll disabled
-}
+#input "1267:12717:MSFT0002:00_04F3:31AD_Mouse" {
+#	accel_profile "flat"
+#	pointer_accel 0.1
+#	natural_scroll disabled
+#}
 
 input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse_Keyboard" {
 	natural_scroll disabled
 }
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
-	tap enabled
-	natural_scroll enabled
-	dwt enabled
-	middle_emulation enabled
-}
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#	tap enabled
+#	natural_scroll enabled
+#	dwt enabled
+#	middle_emulation enabled
+#}
 
 input type:mouse {
 	accel_profile "flat"
