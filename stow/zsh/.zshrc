@@ -36,6 +36,7 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export BAT_THEME="Dracula"
 export XCURSOR_SIZE=28
 export GTK_THEME=Layan-dark
+export GIT_ASKPASS='/usr/bin/ksshaskpass'
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
