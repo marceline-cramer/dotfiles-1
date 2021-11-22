@@ -15,8 +15,6 @@
  ##  at the top  ##
  ###            ###
 
-[[ -f ~/Git/zsh-snap/znap.zsh ]] || 
-	git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.znap
 source ~/.znap/zsh-snap/znap.zsh
 
 eval "$(dircolors)"
@@ -140,8 +138,8 @@ source ~/.aliasrc
 
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-history-substring-search
-znap source zdharma/history-search-multi-word  # Must go after zsh-history-substring-search
-znap source zdharma/fast-syntax-highlighting
+znap source lilithium-hydride/history-search-multi-word  # Must go after zsh-history-substring-search
+znap source lilithium-hydride/fast-syntax-highlighting
 znap source zpm-zsh/clipboard
 
 source ~/.zsh/fzfspell/fzfspell.sh
