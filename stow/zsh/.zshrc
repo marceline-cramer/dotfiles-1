@@ -15,7 +15,10 @@
  ##  at the top  ##
  ###            ###
 
+[[ -f ~/Git/zsh-snap/znap.zsh ]] || 
+	git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.znap
 source ~/.znap/zsh-snap/znap.zsh
+
 eval "$(dircolors)"
 znap prompt romkatv/powerlevel10k
 

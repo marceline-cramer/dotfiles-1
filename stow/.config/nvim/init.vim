@@ -23,7 +23,7 @@ runtime! archlinux.vim
 
 set number	" Enable line numbers
 set relativenumber
-highlight LineNr ctermfg=250 ctermbg=235	" Line number background
+"highlight LineNr ctermfg=250 ctermbg=235	" Line number background
 set mouse=a
 set hidden
 set nocursorline
@@ -97,9 +97,9 @@ let g:vimtex_grammar_texidote = {
 			\ 'args': '',
 			\}
 
-" Don't garbge manpages
+" Don't garble manpages
 autocmd FileType man setlocal nogdefault
-
+autocmd FileType man % !col -b
 
 
 """ Coc Configurations
@@ -188,8 +188,8 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')

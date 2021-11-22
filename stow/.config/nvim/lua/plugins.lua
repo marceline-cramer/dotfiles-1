@@ -300,7 +300,7 @@ return require('packer').startup(function()
 	}
 	
 	-- Color Previews: vim-coloreque
-	use {'gko/vim-coloresque'}
+	--use {'gko/vim-coloresque'}  -- Handled by coc-highlight now
 
 	-- Smooth Scrolling: neoscroll.nvim
 	use {
@@ -328,7 +328,7 @@ return require('packer').startup(function()
 		branch = 'release',
 		run = ':CocUpdateSync',
 		config = function()
-			vim.cmd('let g:coc_global_extensions = ["coc-snippets", "coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java"]')
+			vim.cmd('let g:coc_global_extensions = ["coc-snippets", "coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java", "coc-highlight"]')
 		end
 	}
 
