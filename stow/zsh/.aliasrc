@@ -16,6 +16,7 @@ alias llat='ls -la --tree'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+alias sudoedit='doas nvim'  # $EDITOR does not provide appropriate autocompletion
 alias yay='paru'
 alias yya='yay'
 alias av='aurvote'

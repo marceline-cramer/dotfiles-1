@@ -38,4 +38,4 @@ set recolor-keephue             "true"
 #set recolor-keephue
 #set default-bg "rgba(0, 0, 0, 0)"
 
-set adjust_open width
+set adjust-open width
