@@ -2,3 +2,6 @@
 **.git
 **.log
 stow/.config/gtk-3.0/bookmarks
+stow/.config/nvim/plugin/
+stow/.config/sway/config.d/monitors.conf
+stow/.config/qt5ct/qt5ct.conf
