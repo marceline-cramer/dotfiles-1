@@ -33,7 +33,7 @@ fi
 
 export TERMINAL="kitty -1"
 export EDITOR="nvim"
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER="nvim -R -c 'set ft=man' -"
 export BAT_THEME="Dracula"
 export XCURSOR_SIZE=28
 export GTK_THEME=Layan-dark
