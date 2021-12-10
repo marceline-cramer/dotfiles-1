@@ -26,8 +26,8 @@ set completion-highlight-fg     "#26233a"
 set completion-highlight-bg     "#ebbcba"
 
 set recolor-lightcolor          "rgba(21, 20, 28, 0.8)"
-set recolor-darkcolor          "rgba(255, 255, 255, 1)"
-#set recolor-darkcolor           "rgba(224, 222, 244, 0)"
+#set recolor-darkcolor          "rgba(255, 255, 255, 1)"
+set recolor-darkcolor           "rgba(212, 200, 222, 1)"
 
 set recolor                     "true"
 set recolor-keephue             "true"
