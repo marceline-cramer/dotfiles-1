@@ -89,16 +89,22 @@ let g:seoul256_background = 234  " Make seoul256 background less bright
 let g:vista_sidebar_position = 'vertical topleft'  " Must be set here instead of plugins.lua
 
 
+
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_engine = 'xelatex'  " xelatex, pdflatex, or lualatex
-
 let g:vimtex_grammar_texidote = {
 			\ 'jar': '/opt/textidote/textidote.jar',
 			\ 'args': '',
 			\}
 
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_options_latexmk = '--shell-escape --unique'
+let g:vimtex_compiler_method = 'latexmk'
+
+
+
 " Don't garble manpages
-autocmd FileType man setlocal nogdefault
 autocmd FileType man % !col -b
 
 
