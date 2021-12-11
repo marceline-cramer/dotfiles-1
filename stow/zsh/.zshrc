@@ -35,6 +35,10 @@ export TERMINAL="kitty -1"
 export EDITOR="nvim"
 export MANPAGER="nvim -R -c 'set ft=man' -"
 export BAT_THEME="Dracula"
+export FZF_DEFAULT_COMMAND='fd --color=always --type file --hidden --exclude .git'
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export XCURSOR_SIZE=28
 export GTK_THEME=Layan-dark
 export GIT_ASKPASS='/usr/bin/ksshaskpass'
