@@ -39,11 +39,11 @@ URxvt*.background: [80]#1a1a2e
 ! Appearance
 Xft.dpi:		109
 Xft.antialias: true
-Xft.hinting: 1
-Xft.autohint: 0
+Xft.hinting: true
+!Xft.autohint: 0
 Xft.rgba: rgb
-Xft.hintstyle: hindmedium
-Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+!Xft.lcdfilter: lcddefault
 
 !define termfont	xft:'MesloLGS Nerd Font':pixelsize=15:antialias=true
 #define termfont	xft:'TamzenForPowerline':pixelsize=12:antialias=false
