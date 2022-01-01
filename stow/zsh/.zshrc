@@ -88,6 +88,7 @@ SAVEHIST=$HISTSIZE
 ZLE_RPROMPT_INDENT=0
 POWERLEVEL9K_LEGACY_ICON_SPACING=true
 setopt autocd
+setopt COMBINING_CHARS
 bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 zstyle ':completion:*' menu select
@@ -102,6 +103,7 @@ zstyle ':completion:*' group-name ''
 autoload -Uz compinit
 autoload edit-command-line
 zle -N edit-command-line
+disable r
 
 
 

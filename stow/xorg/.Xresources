@@ -1,43 +1,43 @@
-Xcusror.size:28
+Xcursor.size:28
 
 
 !! Colorscheme
 ! special
 *.depth: 32
-*.foreground: #dedbeb
+*.foreground: #e0def4
 *.background: #1a1a2e
-URxvt*.background: [80]#1a1a2e
-*.cursorColor: #dedbeb
+URxvt*.background: [80]#191724
+*.cursorColor: #e0def4
 
 ! black
-*.color0: #23223d
-*.color8: #2f2e51
+*.color0: #191724
+*.color8: #6e6a86
 ! red
-*.color1: #ed3f7f
-*.color9: #fb5c8e
+*.color1: #eb6f92
+*.color9: #eb6d92
 ! green
-*.color2: #84c49b
-*.color10: #9fd3b3
+*.color2: #7fb59f
+*.color10: #7fb59f
 ! yellow
-*.color3: #f6e08b
-*.color11: #fff0b8
+*.color3: #f6c177
+*.color11: #f6c177
 ! blue
-*.color4: #a29dff
-*.color12: #b2aeff
+*.color4: #31748f
+*.color12: #31748f
 ! magenta
-*.color5: #ed86ea
-*.color13: #f09eed
+*.color5: #c4a7e7
+*.color13: #c4a7e7
 ! cyan
-*.color6: #93c5e6
-*.color14: #aed9f6
+*.color6: #9ccfd8
+*.color14: #9ccfd8
 ! white
-*.color7: #d5cde8
-*.color15: #e2d9f6
+*.color7: #e0def4
+*.color15: #e0def4
 
 
 !! URxvt
 ! Appearance
-Xft.dpi:		109
+!Xft.dpi:		109
 Xft.antialias: true
 Xft.hinting: true
 !Xft.autohint: 0
@@ -46,14 +46,15 @@ Xft.hintstyle: hintfull
 !Xft.lcdfilter: lcddefault
 
 !define termfont	xft:'MesloLGS Nerd Font':pixelsize=15:antialias=true
-#define termfont	xft:'TamzenForPowerline':pixelsize=12:antialias=false
-#define termfonti	xft:'UW Ttyp0':pixelsize:12:antialias=false
+#define termfont	xft:'Cartograph CF':pixelsize=12:antialias=true
+!#define termfont	xft:'TamzenForPowerline':pixelsize=12:antialias=false
+!#define termfonti	xft:'UW Ttyp0':pixelsize:12:antialias=false
 URxvt.font: 			termfont
 URxvt.boldFont: 		termfont
-URxvt.italicFont: 		termfonti
-URxvt.boldItalicfont: 	termfonti
-URxvt.letterSpace: 	-6
-URxvt.lineSpace: 	0
+URxvt.italicFont: 		termfont
+URxvt.boldItalicfont: 	termfont
+URxvt.letterSpace: 	-4
+!URxvt.lineSpace: 	0
 URxvt.geometry: 	100x36
 URxvt.internalBorder: 	0
 URxvt.cursorBlink: 	true
@@ -62,7 +63,8 @@ URxvt.saveline: 	2048
 URxvt.scrollBar: 	false
 URxvt.scrollBar_right: 	false
 URxvt.urgentOnBell: 	true
-URxvt.depth: 		32
+URxvt.depth: 32
+!URxvt*background: rgba:0000/0000/0200/1100
 URxvt.iso14755: 	false
 
 ! Keybinds

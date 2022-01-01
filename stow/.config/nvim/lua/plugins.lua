@@ -26,7 +26,7 @@ return require('packer').startup(function()
 				},
 				sections = {lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end}},
 										lualine_b = {'branch', 'diff', {'diagnostics', 
-																										sources={'coc', 'nvim_lsp'}}},
+																										sources={'coc', 'nvim_diagnostic'}}},
 										lualine_c = {'filename'},
 										lualine_x = {'encoding', 'fileformat', 'filetype'},
 										lualine_y = {'progress'},
@@ -328,7 +328,7 @@ return require('packer').startup(function()
 		branch = 'release',
 		run = ':CocUpdateSync',
 		config = function()
-			vim.cmd('let g:coc_global_extensions = ["coc-snippets", "coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java", "coc-highlight"]')
+			vim.cmd('let g:coc_global_extensions = ["coc-snippets", "coc-json", "coc-rust-analyzer", "coc-vimtex", "coc-java", "coc-lua", "coc-highlight", "coc-prettier"]')
 		end
 	}
 

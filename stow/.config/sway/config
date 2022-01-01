@@ -148,9 +148,11 @@ smart_gaps false
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+
 input type:keyboard {
 	xkb_layout us
 	xkb_options compose:ralt
+	xkb_numlock enable
 }
 
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
@@ -483,19 +485,26 @@ for_window [title="flameshot"] floating enable
 #
 
 include colorscheme-rosepine
+seat seat0 xcursor_theme Bibata_Ghost 24
 
+# Yet another spot to define GTK themes, because there weren't enough already.
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Layan-dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Light'
+    gsettings set $gnome-schema cursor-theme 'Bibata_Ghost'
+    gsettings set $gnome-schema cursor-size 24
+    gsettings set $gnome-schema font-name 'Tenorite 11'
+	gsettings set $gnome-scheme font-hinting 'full'
+}
 
 #
 # Autostarts
 #
 
+exec xrdb -load ~/.Xresources
 #exec_always dunst
-#exec_always pipewire-pulse
-#exec pipewire-media-session
 
-# Start user dbus session for mako. playerctld must be started after the last dbus
-# is created, and others may also require this.
-#exec -- dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus && mako && playerctld daemon && copyq --start-server enable 
 exec mako 
 exec /usr/lib/polkit-kde-authentication-agent-1
 #exec playerctld daemon

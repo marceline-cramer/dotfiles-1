@@ -22,7 +22,7 @@ fi
 
 
 echo 'Installing some basic stuff.'
-paru -Sy --needed bat ranger neovim-nightly-bin neovim-symlinks starship htop bpytop-git rofi-lbonn-wayland-git lxappearance qt5ct kvantum-qt5 kvantum-theme-orchis-git papirus-icon-theme bibata-cursor-translucent stow --noconfirm
+paru -Sy --needed bat ranger neovim-nightly-bin neovim-symlinks starship htop bpytop-git rofi-lbonn-wayland-git lxappearance qt5ct kvantum-qt5 kvantum-theme-orchis-git papirus-icon-theme bibata-cursor-translucent stow polkit-kde-agent --noconfirm
 
 echo -e "The following programs aren't \e[3msuper\e[0m essential, decline and install individually later if you please."
 paru -Sy picom-jonaburg-git kitty foot pcmanfm-qt dunst wired --noconfirm
