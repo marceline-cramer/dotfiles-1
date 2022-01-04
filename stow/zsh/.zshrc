@@ -39,8 +39,8 @@ export FZF_DEFAULT_COMMAND='fd --color=always --type file --hidden --exclude .gi
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export XCURSOR_SIZE=28
-export GTK_THEME=Layan-dark
+#export XCURSOR_SIZE=24
+#export GTK_THEME=Layan-dark
 export GIT_ASKPASS='/usr/bin/ksshaskpass'
 
 export GTK_IM_MODULE=ibus
@@ -159,6 +159,6 @@ source ~/.zsh/fzfspell/fzfspell.sh
  
 eval "$(zoxide init zsh)"
 #eval "$(starship init zsh)"
-xsetroot -xcf /usr/share/icons/Bibata_Ghost/cursors/left_ptr 28
+#xsetroot -xcf /usr/share/icons/Bibata_Ghost/cursors/left_ptr 24
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
