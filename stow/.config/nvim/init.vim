@@ -82,8 +82,11 @@ let g:seoul256_background = 234  " Make seoul256 background less bright
 "colorscheme amora
 
 
-"hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
-"hi LineNr ctermbg=NONE guibg=NONE
+"colorscheme catppuccin
+
+
+hi Normal guibg=NONE ctermbg=NONE	" Force transparent background
+hi LineNr ctermbg=NONE guibg=NONE
 
 
 let g:vista_sidebar_position = 'vertical topleft'  " Must be set here instead of plugins.lua

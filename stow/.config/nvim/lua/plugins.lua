@@ -18,14 +18,14 @@ return require('packer').startup(function()
 					fmt = string.lower,
 					theme = 'rose-pine',
 					icons_enabled = true,
-					theme = 'auto',
+					--theme = 'auto',
 					component_separators = { left = '│', right = '│'},
 					section_separators = { left = ' ', right = ' '},
 					disabled_filetypes = {},
 					always_divide_middle = true,
 				},
 				sections = {lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end}},
-										lualine_b = {'branch', 'diff', {'diagnostics', 
+										lualine_b = {'branch', 'diff', {'diagnostic',
 																										sources={'coc', 'nvim_diagnostic'}}},
 										lualine_c = {'filename'},
 										lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -397,6 +397,66 @@ return require('packer').startup(function()
 		end
 	})
 
+	use ({
+		'catppuccin/nvim',
+		as = 'catppuccin',
+		config = function()
+			transparent_background = true
+			term_colors = false
+			styles = {
+				comments = "italic",
+				functions = "NONE",
+				keywords = "NONE",
+				strings = "NONE",
+				variables = "NONE",
+			}
+			integrations = {
+				treesitter = true,
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = "italic",
+						hints = "italic",
+						warnings = "italic",
+						information = "italic",
+					},
+					underlines = {
+						errors = "underline",
+						hints = "underline",
+						warnings = "underline",
+						information = "underline",
+					},
+				},
+				lsp_trouble = false,
+				cmp = true,
+				lsp_saga = false,
+				gitgutter = false,
+				gitsigns = true,
+				telescope = true,
+				nvimtree = {
+					enabled = true,
+					show_root = false,
+				},
+				which_key = false,
+				indent_blankline = {
+					enabled = true,
+					colored_indent_levels = false,
+				},
+				dashboard = true,
+				neogit = false,
+				vim_sneak = false,
+				fern = false,
+				barbar = false,
+				bufferline = true,
+				markdown = true,
+				lightspeed = false,
+				ts_rainbow = false,
+				hop = false,
+				notify = true,
+				telekasten = true,
+			}
+		end
+	})
 
 end)
 
