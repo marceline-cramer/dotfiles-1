@@ -83,7 +83,7 @@ exec export _JAVA_AWT_WM_NONREPARENTING=1
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg ~/Pictures/Wallpapers/blockwavemoon_blurred.png fill
-output * bg '/home/lilith/Pictures/Wallpapers/David_Schermann_e7264583510381.5d3f051eb28.jpg' fill
+output * bg '~/Pictures/Wallpapers/David_Schermann_e7264583510381.5d3f051eb28.jpg' fill
 #
 # Example configuration:
 #
