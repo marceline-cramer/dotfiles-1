@@ -5,6 +5,7 @@
 	font-family: SauceCodePro Nerd Font;
 	/*font-family: Cartograph CF Light;*/
 	font-size: 12px;
+	/*transition: size 0.1s, transform 0.1s;*/
 }
 
 window#waybar {
@@ -21,7 +22,8 @@ window#waybar.hidden {
 	padding-left: 0px;
 	padding-right: 0px;
 	border-radius: 0px;
-	/*transition: none;*/
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 	/*
 	color: #f8f8f2;
 	background: #282a36;
@@ -32,16 +34,20 @@ window#waybar.hidden {
 
 #workspaces {
 	margin-top: 6px;
-	margin-left: 6px;
+	margin-left: 10px;
 	margin-right: 8px;
 	margin-bottom: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 	border-radius: 10px;
 	background: #191724;
 }
 
 #workspaces button {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	color: #e0def4;
 	background: transparent;
 }
@@ -54,6 +60,10 @@ window#waybar.hidden {
 	box-shadow: inherit;
 	text-shadow: inherit;
 	color: #c4a7e7;
+}
+
+#workspaces button.urgent {
+	color: #eb6f92
 }
 
 #mode {
@@ -81,7 +91,6 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	background: #282a36;
-	transition: none;
 	color: #7fb59f;
 	background: #191724;
 }
@@ -91,11 +100,10 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 14px;
 	padding-right: 14px;
-	padding-bottom: 8px;
+	padding-bottom: 0px;
 	padding-top: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	background: #191724;
 }
 
@@ -108,7 +116,6 @@ window#waybar.hidden {
 	padding-top: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #e0def4;
 	background: #191724;
 }
@@ -118,11 +125,10 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 14px;
 	padding-right: 16px;
-	padding-bottom: 6px;
+	padding-bottom: 8px;
 	padding-top: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;;
-	transition: none;
 	color: #ebbcba;
 	background: #191724;
 }
@@ -136,7 +142,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #c4a7e7;
 	background: #191724;
 }
@@ -151,7 +156,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #c4a7e7;
 	background: #191724;
 }
@@ -166,7 +170,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #eb6f92;
 	background: #191724;
 }
@@ -180,7 +183,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;;
-	transition: none;
 	color: #7fb59f;
 	background: #191724;
 }
@@ -194,7 +196,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #f6c177;
 	background: #191724;
 }
@@ -208,7 +209,6 @@ window#waybar.hidden {
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #9ccfd8;
 	background: #191724;
 }
@@ -216,14 +216,13 @@ window#waybar.hidden {
 #clock {
 	margin-top: 6px;
 	margin-left: 8px;
-	margin-right: 6px;
+	margin-right: 10px;
 	padding-left: 14px;
 	padding-right: 14px;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	margin-bottom: 0px;
 	border-radius: 10px;
-	transition: none;
 	color: #e0def4;
 	background: #191724;
 }
