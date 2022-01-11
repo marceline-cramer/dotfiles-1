@@ -5,12 +5,12 @@
 	font-family: SauceCodePro Nerd Font;
 	/*font-family: Cartograph CF Light;*/
 	font-size: 12px;
-	min-height: 12px;
 }
 
 window#waybar {
-	background: #191724;
-	border-radius: 0px 0px 16px 16px;
+	/*background: #3d3b49;*/
+	background: transparent;
+	/*border-radius: 0px 0px 11px 11px;*/
 }
 
 window#waybar.hidden {
@@ -30,195 +30,200 @@ window#waybar.hidden {
 	background: transparent;
 }
 
-window#waybar.termite #window,
-window#waybar.Firefox #window,
-window#waybar.Librewolf #window,
-window#waybar.Navigator #window,
-window#waybar.PCSX2 #window {
-	color: #4d4d4d;
-	background: #e6e6e6;
-}
-
 #workspaces {
-	margin-top: 0px;
-	margin-left: 12px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
-	/*background: #282a36;*/
-	background: #393754;
-	/*transition: width 2s;*/
+	margin-top: 6px;
+	margin-left: 6px;
+	margin-right: 8px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border-radius: 10px;
+	background: #191724;
 }
 
 #workspaces button {
-	transition: none;
-	/*color: #f8f8f2;*/
 	color: #e0def4;
 	background: transparent;
-	font-size: 16px;
 }
 
 #workspaces button.focused {
-	/*color: #9aedfe;*/
 	color: #9ccfd8;
 }
 
 #workspaces button:hover {
-	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	/*color: #ff79c6;*/
 	color: #c4a7e7;
 }
 
-#custom-media {
-	margin-top: 0px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 4px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
-	background: #282a36;
-	transition: none;
-	color: #4d4d4d;
-	/*background: #5af78e;*/
-	background: #7fb59f;
+#mode {
+	margin-top: 6px;
+	margin-left: 0px;
+	margin-right: 8px;
+	margin-bottom: 0px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border-radius: 10px;
+	background: #191724;
+	color: #e0def4;
+
 }
 
-#mpd.disconnected,
-#mpd.stopped {
-	color: #f8f8f2;
+#custom-media {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	background: #282a36;
+	transition: none;
+	color: #7fb59f;
+	background: #191724;
 }
 
 #tray {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	/*background: #282a36;*/
-	background: #393754;
+	background: #191724;
 }
 
 #idle_inhibitor {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 9px;
-	padding-right: 14px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-left: 12px;
+	padding-right: 15px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #f8f8f2;
-	/*background: #282a36;*/
-	background: #393754;
+	color: #e0def4;
+	background: #191724;
 }
 
 #network {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
+	padding-left: 14px;
 	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;;
+	padding-bottom: 6px;
+	padding-top: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #ff92df;*/
-	background: #ebbcba;
+	color: #ebbcba;
+	background: #191724;
 }
 
 #pulseaudio {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #d6acff;*/
-	background: #c4a7e7;
+	color: #c4a7e7;
+	background: #191724;
 }
 
 #battery {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
 	margin-right: 0px;
-	padding-left: 16px;
+	padding-left: 14px;
 	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #d6acff;*/
-	background: #c4a7e7;
+	color: #c4a7e7;
+	background: #191724;
 }
 
 #temperature {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
 	margin-right: 0px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #ff6e6e;*/
-	background: #eb6f92;
+	color: #eb6f92;
+	background: #191724;
 }
 
 #disk {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;;
+	padding-left: 14px;
+	padding-right: 15px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #69ff94;*/
-	background: #7fb59f;
+	color: #7fb59f;
+	background: #191724;
 }
 
 #cpu {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
+	padding-left: 14px;
 	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #f1fa8c;*/
-	background: #f6c177;
+	color: #f6c177;
+	background: #191724;
 }
 
 #memory {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	padding-left: 16px;
+	padding-left: 14px;
 	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	/*background: #a4ffff;*/
-	background: #9ccfd8;
+	color: #9ccfd8;
+	background: #191724;
 }
 
 #clock {
-	margin-top: 0px;
+	margin-top: 6px;
 	margin-left: 8px;
-	margin-right: 12px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 12px;
-	border-radius: 0px 0px 10px 10px;
+	margin-right: 6px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #f8f8f2;
-	/*background: #282a36;*/
-	background: #393754;
+	color: #e0def4;
+	background: #191724;
 }
