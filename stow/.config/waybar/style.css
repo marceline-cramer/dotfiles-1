@@ -11,25 +11,16 @@
 window#waybar {
 	/*background: #3d3b49;*/
 	background: transparent;
-	/*border-radius: 0px 0px 11px 11px;*/
 }
 
 window#waybar.hidden {
-	opacity: 0.2;
+	opacity: 0.0;
 }
 
 #window {
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: 0px;
 	border-radius: 0px;
 	margin-bottom: 0px;
-	padding-bottom: 0px;
-	/*
-	color: #f8f8f2;
-	background: #282a36;
-	*/
-	color: transparent;
-	background: transparent;
 }
 
 #workspaces {
@@ -37,10 +28,7 @@ window#waybar.hidden {
 	margin-left: 10px;
 	margin-right: 8px;
 	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: 0px 0px 0px 0px;
 	border-radius: 10px;
 	background: #191724;
 }
@@ -67,162 +55,161 @@ window#waybar.hidden {
 }
 
 #mode {
-	margin-top: 6px;
-	margin-left: 0px;
-	margin-right: 8px;
-	margin-bottom: 0px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-top: 	0px;
-	padding-bottom: 0px;
-	border-radius: 10px;
+	margin-top:      6px;
+	margin-left:     0px;
+	margin-right:    8px;
+	margin-bottom:   0px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-top:     0px;
+	padding-bottom:  0px;
+	border-radius:   10px;
 	background: #191724;
-	color: #e0def4;
+	color: 		#e0def4;
 
 }
 
 #custom-media {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-bottom: 7px;
-	padding-top: 	7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	background: #282a36;
-	color: #7fb59f;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-bottom:  7px;
+	padding-top:   	 7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#7fb59f;
 	background: #191724;
 }
 
 #tray {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-bottom: 0px;
-	padding-top: 	7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-bottom:  0px;
+	padding-top: 	 7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
 	background: #191724;
 }
 
 #idle_inhibitor {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 12px;
-	padding-right: 15px;
-	padding-bottom: 7px;
-	padding-top: 	7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #e0def4;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    12px;
+	padding-right:   15px;
+	padding-bottom:  7px;
+	padding-top: 	 7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#e0def4;
 	background: #191724;
 }
 
 #network {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 16px;
-	padding-bottom: 7px;
-	padding-top: 	7px;
-	margin-bottom: 0px;
-	border-radius: 10px;;
-	color: #ebbcba;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   16px;
+	padding-bottom:  7px;
+	padding-top: 	 7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#ebbcba;
 	background: #191724;
 }
 
 #pulseaudio {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #c4a7e7;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#c4a7e7;
 	background: #191724;
 }
 
 #battery {
-	margin-top: 6px;
-	margin-left: 8px;
-	margin-right: 0px;
-	padding-left: 14px;
-	padding-right: 16px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #c4a7e7;
+	margin-top:      6px;
+	margin-left:     8px;
+	margin-right:    0px;
+	padding-left:    14px;
+	padding-right:   16px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#c4a7e7;
 	background: #191724;
 }
 
 #temperature {
-	margin-top: 6px;
-	margin-left: 8px;
-	margin-right: 0px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #eb6f92;
+	margin-top:      6px;
+	margin-left:     8px;
+	margin-right:    0px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#eb6f92;
 	background: #191724;
 }
 
 #disk {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 15px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;;
-	color: #7fb59f;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   15px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#7fb59f;
 	background: #191724;
 }
 
 #cpu {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 16px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #f6c177;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   16px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#f6c177;
 	background: #191724;
 }
 
 #memory {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 14px;
-	padding-right: 16px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #9ccfd8;
+	margin-top:      6px;
+	margin-left:     8px;
+	padding-left:    14px;
+	padding-right:   16px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#9ccfd8;
 	background: #191724;
 }
 
 #clock {
-	margin-top: 6px;
-	margin-left: 8px;
-	margin-right: 10px;
-	padding-left: 14px;
-	padding-right: 14px;
-	padding-top: 	7px;
-	padding-bottom: 7px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	color: #e0def4;
+	margin-top:      6px;
+	margin-left:     8px;
+	margin-right:    10px;
+	padding-left:    14px;
+	padding-right:   14px;
+	padding-top:     7px;
+	padding-bottom:  7px;
+	margin-bottom:   0px;
+	border-radius:   10px;
+	color: 		#e0def4;
 	background: #191724;
 }
