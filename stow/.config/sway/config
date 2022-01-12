@@ -277,8 +277,8 @@ input type:touchpad {
 
 	
 	# Dense Mode
-	bindsym $mod+Control+d exec swaymsg gaps inner all set 0
-	bindsym $mod+Control+Alt+d exec swaymsg gaps inner all set 10 
+	bindsym $mod+Control+d exec "swaymsg gaps inner all set 0 && killall -SIGUSR1 waybar"
+	bindsym $mod+Control+Alt+d exec "swaymsg gaps inner all set 10 && killall -SIGUSR1 waybar"
 
 
 
