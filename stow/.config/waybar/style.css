@@ -64,8 +64,8 @@ window#waybar.hidden {
 	padding-top:     0px;
 	padding-bottom:  0px;
 	border-radius:   10px;
-	background: #191724;
-	color: 		#e0def4;
+	background:      #191724;
+	color: 	         #e0def4;
 
 }
 
@@ -78,8 +78,8 @@ window#waybar.hidden {
 	padding-top:   	 7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#7fb59f;
-	background: #191724;
+	color: 	         #7fb59f;
+	background:      #191724;
 }
 
 #tray {
@@ -91,7 +91,7 @@ window#waybar.hidden {
 	padding-top: 	 7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	background: #191724;
+	background:      #191724;
 }
 
 #idle_inhibitor {
@@ -103,8 +103,8 @@ window#waybar.hidden {
 	padding-top: 	 7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#e0def4;
-	background: #191724;
+	color: 	         #e0def4;
+	background:      #191724;
 }
 
 #network {
@@ -116,8 +116,8 @@ window#waybar.hidden {
 	padding-top: 	 7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#ebbcba;
-	background: #191724;
+	color:           #ebbcba;
+	background:      #191724;
 }
 
 #pulseaudio {
@@ -129,8 +129,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#c4a7e7;
-	background: #191724;
+	color:           #c4a7e7;
+	background:      #191724;
 }
 
 #battery {
@@ -143,8 +143,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#c4a7e7;
-	background: #191724;
+	color:           #c4a7e7;
+	background:      #191724;
 }
 
 #temperature {
@@ -157,8 +157,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#eb6f92;
-	background: #191724;
+	color:           #eb6f92;
+	background:      #191724;
 }
 
 #disk {
@@ -170,8 +170,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#7fb59f;
-	background: #191724;
+	color:           #7fb59f;
+	background:      #191724;
 }
 
 #cpu {
@@ -183,8 +183,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#f6c177;
-	background: #191724;
+	color:           #f6c177;
+	background:      #191724;
 }
 
 #memory {
@@ -196,8 +196,8 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#9ccfd8;
-	background: #191724;
+	color:           #9ccfd8;
+	background:      #191724;
 }
 
 #clock {
@@ -210,6 +210,6 @@ window#waybar.hidden {
 	padding-bottom:  7px;
 	margin-bottom:   0px;
 	border-radius:   10px;
-	color: 		#e0def4;
-	background: #191724;
+	color:           #e0def4;
+	background:      #191724;
 }
