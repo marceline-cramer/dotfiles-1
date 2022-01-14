@@ -117,15 +117,15 @@ default_border pixel 2
 
 # Gaps between containers
 gaps inner 10
-#gaps outer 0
+gaps outer 0
 
 # Gaps between screen edges and containers
-#gaps left 5
-#gaps right 5
-#gaps top 8
-#gaps bottom 5
-#gaps vertical 5
-#gaps horizontal 5
+#gaps left 10
+#gaps right 10
+gaps top -4
+#gaps bottom 10
+#gaps vertical 10
+#gaps horizontal 10
 
 # Only create gaps if there's >1 container
 smart_gaps false
