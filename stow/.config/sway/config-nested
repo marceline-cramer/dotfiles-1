@@ -1,0 +1,339 @@
+# Read `man 5 sway` for a complete reference.
+# vim: ft=conf
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+#set $term kitty -1
+set $term footclient
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu wofi --term kitty --allow-images --insensitive --gtk-dark --fork --show drun | xargs swaymsg exec --
+#set $menu BEMENU_BACKEND=wayland bemenu-run -i -l 20 -P '>' | xargs swaymsg exec --
+set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
+
+#set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
+#--inside-color 282a36cc \
+#--inside-clear-color ffffa5cc \
+#--inside-ver-color d6acffcc \
+#--inside-wrong-color ff6e6ecc \
+#--key-hl-color 8be9fd \
+#--layout-border-color 00000000 \
+#--layout-bg-color 282a36cc \
+#--layout-text-color f8f8f2 \
+#--line-color 00000000 \
+#--line-clear-color 00000000 \
+#--line-caps-lock-color 00000000 \
+#--line-ver-color 00000000 \
+#--line-wrong-color 00000000 \
+#--ring-color f8f8f2cc \
+#--ring-clear-color ffffa5cc \
+#--ring-ver-color d6acffcc \
+#--ring-wrong-color ff6e6ecc \
+#--separator-color 282a36cc \
+#--text-color f8f8f2 \
+#--text-clear-color 282a36 \
+#--text-ver-color  282a36 \
+#--text-wrong-color 282a36
+
+exec export XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec export _JAVA_AWT_WM_NONREPARENTING=1
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#output * bg ~/Pictures/Wallpapers/blockwavemoon_blurred.png fill
+output * bg '#333333' solid_color
+#
+# Example configuration:
+#
+#	output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#		   timeout 300 'swaylock -f -c 000000' \
+#		   timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#		   before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+### Appearance
+
+# Window border
+default_border pixel 0
+
+# Gaps between containers
+gaps inner 0
+gaps outer 0
+
+# Gaps between screen edges and containers
+#gaps left 5
+#gaps right 5
+#gaps top 8
+#gaps bottom 5
+#gaps vertical 5
+#gaps horizontal 5
+
+# Only create gaps if there's >1 container
+smart_gaps false
+
+
+input type:keyboard {
+	xkb_layout us
+	xkb_options compose:ralt
+	xkb_numlock enable
+}
+
+input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+	accel_profile "flat"
+	pointer_accel -0.5
+	natural_scroll disabled
+}
+
+input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse" {
+	accel_profile "flat"
+	pointer_accel -0.5
+	natural_scroll disabled
+}
+
+input "7511:44311:LXD_Gaming_Mouse" {
+	accel_profile "flat"
+	pointer_accel -0.5
+	natural_scroll disabled
+}
+
+#input "2:1:PS/2_Generic_Mouse" {
+#	accel_profile "flat"
+#	pointer_accel 0.1
+#	natural_scroll disabled
+#}
+
+#input "1267:12717:MSFT0002:00_04F3:31AD_Mouse" {
+#	accel_profile "flat"
+#	pointer_accel 0.1
+#	natural_scroll disabled
+#}
+
+input "1133:49284:Logitech_G203_Prodigy_Gaming_Mouse_Keyboard" {
+	natural_scroll disabled
+}
+
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#	tap enabled
+#	natural_scroll enabled
+#	dwt enabled
+#	middle_emulation enabled
+#}
+
+input type:mouse {
+	accel_profile "flat"
+	pointer_accel 0
+	natural_scroll disabled
+}
+
+input type:touchpad {
+	tap enabled
+	natural_scroll enabled
+	dwt enabled
+	middle_emulation enabled
+}
+
+
+### Key bindings
+
+#
+# Basics:
+#
+
+	# Start a terminal
+	bindsym Control+Alt+t exec $term
+	bindsym Control+Alt+Return exec $term
+
+	# Kill focused window
+	bindsym Control+Alt+c kill
+
+	# Start your launcher
+	bindsym --release Super_L exec $menu
+
+	# Reload the configuration file
+	bindsym Control+Alt+r reload
+
+	# Exit sway (logs you out of your Wayland session)
+	bindsym Control+Alt+q exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
+
+#
+# Moving around:
+#
+	# Move your focus around
+	#bindsym $mod+$left focus left
+	#bindsym $mod+$down focus down
+	#bindsym $mod+$up focus up
+	#bindsym $mod+$right focus right
+	# Or use $mod+[up|down|left|right]
+	bindsym Control+Alt+Left focus left
+	bindsym Control+Alt+Down focus down
+	bindsym Control+Alt+Up focus up
+	bindsym Control+Alt+Right focus right
+
+	# Move the focused window with the same, but add Shift
+	bindsym Control+Alt+Shift+$left move left
+	bindsym Control+Alt+Shift+$down move down
+	bindsym Control+Alt+Shift+$up move up
+	bindsym Control+Alt+Shift+$right move right
+	bindsym Control+Alt+Shift+Left move left
+	bindsym Control+Alt+Shift+Down move down
+	bindsym Control+Alt+Shift+Up move up
+	bindsym Control+Alt+Shift+Right move right
+
+#
+# Workspaces:
+#
+
+	#set $output-primary DP-3
+	#set $output-secondary HDMI-A-2
+
+	#workspace 1 output $output-primary
+	#workspace 2 output $output-primary
+	#workspace 3 output $output-primary
+	#workspace 4 output $output-primary
+	#workspace 5 output $output-primary
+	#workspace 6 output $output-primary
+	#workspace 7 output $output-primary
+	#workspace 8 output $output-primary
+	#workspace 9 output $output-primary
+	#workspace 10 output $output-primary
+
+	#workspace 1b output $output-secondary
+	#workspace 2b output $output-secondary
+	#workspace 3b output $output-secondary
+	#workspace 4b output $output-secondary
+	#workspace 5b output $output-secondary
+	#workspace 6b output $output-secondary
+	#workspace 7b output $output-secondary
+	#workspace 8b output $output-secondary
+	#workspace 9b output $output-secondary
+	#workspace 10b output $output-secondary
+
+
+	# Switch to workspace
+	#bindsym $mod+1 workspace number 1
+	#bindsym $mod+2 workspace number 2
+	#bindsym $mod+3 workspace number 3
+	#bindsym $mod+4 workspace number 4
+	#bindsym $mod+5 workspace number 5
+	#bindsym $mod+6 workspace number 6
+	#bindsym $mod+7 workspace number 7
+	#bindsym $mod+8 workspace number 8
+	#bindsym $mod+9 workspace number 9
+	#bindsym $mod+0 workspace number 10
+	# Move focused container to workspace
+	#bindsym $mod+Shift+1 move container to workspace number 1
+	#bindsym $mod+Shift+2 move container to workspace number 2
+	#bindsym $mod+Shift+3 move container to workspace number 3
+	#bindsym $mod+Shift+4 move container to workspace number 4
+	#bindsym $mod+Shift+5 move container to workspace number 5
+	#bindsym $mod+Shift+6 move container to workspace number 6
+	#bindsym $mod+Shift+7 move container to workspace number 7
+	#bindsym $mod+Shift+8 move container to workspace number 8
+	#bindsym $mod+Shift+9 move container to workspace number 9
+	#bindsym $mod+Shift+0 move container to workspace number 10
+	# Note: workspaces can have any name you want, not just numbers.
+	# We just use 1-10 as the default.
+	#
+#
+# Layout stuff:
+#
+	# You can "split" the current object of your focus with
+	# $mod+b or $mod+v, for horizontal and vertical splits
+	# respectively.
+	bindsym Control+Alt+b splith
+	bindsym Control+Alt+v splitv
+
+#
+# Resizing containers:
+#
+mode "resize" {
+	# left will shrink the containers width
+	# right will grow the containers width
+	# up will shrink the containers height
+	# down will grow the containers height
+	bindsym $left resize shrink width 10px
+	bindsym $down resize grow height 10px
+	bindsym $up resize shrink height 10px
+	bindsym $right resize grow width 10px
+
+	# Ditto, with arrow keys
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+
+	# Return to default mode
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym Control+Alt+Shift+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+
+}
+
+#
+# Window Rules
+#
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
+
+
+#
+# Theming
+#
+
+include colorscheme-rosepine
+seat seat0 xcursor_theme Bibata_Ghost 24
+
+# Yet another spot to define GTK themes, because there weren't enough already.
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    #gsettings set $gnome-schema gtk-theme 'Orchis-dark-compact'
+    gsettings set $gnome-schema gtk-theme 'Catppuccin-pink'
+    gsettings set $gnome-schema icon-theme 'Fluent-dark'
+    gsettings set $gnome-schema cursor-theme 'Bibata_Ghost'
+    gsettings set $gnome-schema cursor-size 24
+    #gsettings set $gnome-schema font-name 'Tenorite 12'
+	gsettings set $gnome-scheme font-hinting 'full'
+}
+
+#
+# Autostarts
+#
+
+exec xrdb -load ~/.Xresources
+
+exec_always foot -s
+
+include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*.conf
