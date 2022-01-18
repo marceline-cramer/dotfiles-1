@@ -1,7 +1,7 @@
 alias zshreload="znap restart"
 alias zshconfig="nvim ~/.zshrc"
-alias tmuxconfig="nvim ~/.tmux.conf"
-alias tmuxreload="tmux source ~/.tmux.conf"
+#alias tmuxconfig="nvim ~/.tmux.conf"
+#alias tmuxreload="tmux source ~/.tmux.conf"
 alias soundcloud-dl="scdl"
 #alias pbcopy='xsel --clipboard --input'
 #alias pbpaste='xsel --clipboard --output'
@@ -16,9 +16,11 @@ alias llat='ls -la --tree'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+alias rgi='rg -i'
 alias sudoedit='doas nvim'  # $EDITOR does not provide appropriate autocompletion
 alias yay='paru'
-alias yya='yay'
+alias yya='yay'  # I cannot stop mistyping this
+alias pactree='pactree -c'
 alias av='aurvote'
 alias untar='tar -xvf'
 function yaynotify {
@@ -26,8 +28,7 @@ function yaynotify {
 }
 alias myip='curl -4 icanhazip.com && curl -6 icanhazip.com'
 alias cava='TERM=alacritty cava'
-alias gpustat='python -m gpustat -cFi2'
-alias waysu='sudo env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR'
+#alias waysu='sudo env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR'
 alias pacbrowse="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias yaybrowse="paru -Qq | fzf --preview 'paru -Qil {}' --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
 alias pacbrowseall="pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
