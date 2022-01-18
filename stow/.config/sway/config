@@ -18,7 +18,8 @@ set $term footclient
 # on the original workspace that the command was run on.
 #set $menu wofi --term kitty --allow-images --insensitive --gtk-dark --fork --show drun | xargs swaymsg exec --
 #set $menu BEMENU_BACKEND=wayland bemenu-run -i -l 20 -P '>' | xargs swaymsg exec --
-set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
+#set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu='rofi -show drun -theme rosepine' --term='footclient'
 
 #set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
 #--inside-color 282a36cc \
