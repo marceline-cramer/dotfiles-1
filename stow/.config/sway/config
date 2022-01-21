@@ -152,7 +152,7 @@ smart_gaps false
 
 input type:keyboard {
 	xkb_layout us
-	xkb_options compose:ralt,caps:hyper
+	xkb_options compose:ralt,caps:backspace
 	xkb_numlock enable
 }
 
@@ -272,7 +272,8 @@ input type:touchpad {
 	bindsym $mod+Shift+c kill
 
 	# Start your launcher
-	bindsym --release Super_L exec $menu
+	#bindsym --release Super_L exec $menu
+	bindsym $mod+g exec $menu
 
 	# Bitwarden
 	bindsym $mod+Control+Shift+b exec bwmenu --auto-lock 1800 -c 10 -- -theme rosepine
