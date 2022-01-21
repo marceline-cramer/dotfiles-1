@@ -152,7 +152,7 @@ smart_gaps false
 
 input type:keyboard {
 	xkb_layout us
-	xkb_options compose:ralt
+	xkb_options compose:ralt,caps:hyper
 	xkb_numlock enable
 }
 
