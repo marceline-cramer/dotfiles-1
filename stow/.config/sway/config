@@ -210,6 +210,7 @@ input type:touchpad {
 }
 
 
+
 ### Key bindings
 
 #
@@ -280,6 +281,8 @@ input type:touchpad {
 	bindsym $mod+Control+d exec "swaymsg gaps inner all set 0 && killall -SIGUSR1 waybar"
 	bindsym $mod+Control+Alt+d exec "swaymsg gaps inner all set 10 && killall -SIGUSR1 waybar"
 
+	# Colemak toggle
+	bindsym $mod+Control+Shift+Escape input type:keyboard xkb_variant colemak_dh
 
 
 	# Drag floating windows by holding down $mod and left mouse button.
@@ -480,6 +483,7 @@ for_window [title="robopong testy"] floating enable
 for_window [title="Video Feed \[DEBUG\]"] floating enable
 for_window [title="Picture in picture"] floating enable
 for_window [title="flameshot"] floating enable
+for_window [title="Welcome to CLion"] floating enable
 
 for_window [app_id="wlroots"] floating enable
 for_window [app_id="wlroots"] resize set 364 516
