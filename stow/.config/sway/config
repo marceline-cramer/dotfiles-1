@@ -152,6 +152,7 @@ smart_gaps false
 
 input type:keyboard {
 	xkb_layout us
+	xkb_variant ,colemak_dh
 	xkb_options compose:ralt,caps:backspace
 	xkb_numlock enable
 }
@@ -210,6 +211,12 @@ input type:touchpad {
 	middle_emulation enabled
 }
 
+
+#input type:keyboard xkb_variant ""
+bindsym $mod+Control+Alt+1 input type:keyboard xkb_variant ""
+bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
+# Doesn't currently work, see https://github.com/swaywm/sway/pull/6740
+#bindsym $mod+Control+Alt+0 input type:keyboard xkb_switch_layout next
 
 
 ### Key bindings
@@ -283,8 +290,6 @@ input type:touchpad {
 	bindsym $mod+Control+d exec "swaymsg gaps inner all set 0 && killall -SIGUSR1 waybar"
 	bindsym $mod+Control+Alt+d exec "swaymsg gaps inner all set 10 && killall -SIGUSR1 waybar"
 
-	# Colemak toggle
-	bindsym $mod+Control+Shift+Escape input type:keyboard xkb_variant colemak_dh
 
 
 	# Drag floating windows by holding down $mod and left mouse button.
