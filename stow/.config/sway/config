@@ -290,7 +290,8 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 	bindsym $mod+Control+d exec "swaymsg gaps inner all set 0 && killall -SIGUSR1 waybar"
 	bindsym $mod+Control+Alt+d exec "swaymsg gaps inner all set 10 && killall -SIGUSR1 waybar"
 
-
+	# Vivaldi stuttering fix. Please please PLEASE stop being necessary. Please.
+	bindsym $mod+Alt+Space exec "swaymsg focus parent && swaymsg focus child"
 
 	# Drag floating windows by holding down $mod and left mouse button.
 	# Resize them with right mouse button + $mod.
