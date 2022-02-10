@@ -146,9 +146,18 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-history-substring-search
 znap source lilithium-hydride/history-search-multi-word  # Must go after zsh-history-substring-search
 znap source lilithium-hydride/fast-syntax-highlighting
+znap source olets/zsh-abbr
 znap source zpm-zsh/clipboard
 
 source ~/.zsh/fzfspell/fzfspell.sh
+
+
+
+ ###         ###
+ ##  Aliases  ##
+ ###         ###
+
+abbr -S --quieter yya="yay"
 
 
 
