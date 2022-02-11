@@ -169,9 +169,6 @@ input type:touchpad {
 	# Kill focused window
 	bindsym Control+Alt+c kill
 
-	# Start your launcher
-	bindsym --release Super_L exec $menu
-
 	# Reload the configuration file
 	bindsym Control+Alt+r reload
 

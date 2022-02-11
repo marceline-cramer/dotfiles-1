@@ -21,6 +21,7 @@ alias sudoedit='doas nvim'  # $EDITOR does not provide appropriate autocompletio
 alias yay='paru'
 #alias yya='yay'  # I cannot stop mistyping this
 alias pactree='pactree -c'
+#alias msfconsole="msfconsole -x \"db_connect ${USER}@msf\""
 alias av='aurvote'
 alias untar='tar -xvf'
 function yaynotify {
