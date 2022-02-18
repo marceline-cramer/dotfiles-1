@@ -19,7 +19,7 @@ set $term footclient
 #set $menu wofi --term kitty --allow-images --insensitive --gtk-dark --fork --show drun | xargs swaymsg exec --
 #set $menu BEMENU_BACKEND=wayland bemenu-run -i -l 20 -P '>' | xargs swaymsg exec --
 #set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
-set $menu j4-dmenu-desktop --dmenu='rofi -show drun -theme rosepine' --term='footclient'
+set $menu j4-dmenu-desktop --dmenu='rofi -show drun -theme rosepine -scroll-method 0' --term='footclient'
 
 #set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
 #--inside-color 282a36cc \
@@ -84,7 +84,7 @@ exec export _JAVA_AWT_WM_NONREPARENTING=1
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg ~/Pictures/Wallpapers/blockwavemoon_blurred.png fill
-output * bg '~/Pictures/Wallpapers/David_Schermann_ce47cd63101837.5aaba9a4938fa.jpg' fill
+output * bg '~/Pictures/Wallpapers/David_Schermann_75e14f63101837.5aaba9a498fa0.jpg' fill
 #
 # Example configuration:
 #
@@ -280,7 +280,10 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 
 	# Start your launcher
 	#bindsym --release Super_L exec $menu
-	bindsym $mod+g exec $menu
+	bindsym $mod+x exec $menu
+	
+	# Start quick shortcuts menu
+	bindsym $mod+Shift+a exec ~/.local/bin/quickrun
 
 	# Bitwarden
 	bindsym $mod+Control+Shift+b exec bwmenu --auto-lock 1800 -c 10 -- -theme rosepine
@@ -509,7 +512,7 @@ seat seat0 xcursor_theme Bibata_Ghost 24
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
     #gsettings set $gnome-schema gtk-theme 'Orchis-dark-compact'
-    gsettings set $gnome-schema gtk-theme 'Catppuccin-pink'
+    gsettings set $gnome-schema gtk-theme 'Catppuccin-pink-dark-compact'
     gsettings set $gnome-schema icon-theme 'Fluent-dark'
     gsettings set $gnome-schema cursor-theme 'Bibata_Ghost'
     gsettings set $gnome-schema cursor-size 24
@@ -531,7 +534,7 @@ exec -- copyq --start-server enable
 #exec_always mako
 #exec_always playerctld daemon
 #exec_always -- copyq --start-server enable
-exec_always pipewire
+exec pipewire
 exec_always foot -s
 exec_always kdeconnect-indicator
 exec sudo light -S 80
