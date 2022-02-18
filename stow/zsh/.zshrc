@@ -31,7 +31,7 @@ fi
  ##  Exports  ##
  ###         ###
 
-export TERMINAL="kitty -1"
+export TERMINAL="foot"
 export EDITOR="nvim"
 export MANPAGER="nvim -R -c 'set ft=man' -"
 export BAT_THEME="Dracula"
