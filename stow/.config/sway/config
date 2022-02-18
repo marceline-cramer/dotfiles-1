@@ -231,6 +231,7 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 	bindsym --locked XF86AudioRaiseVolume exec pamixer -i 1  # These need pamixer and are not buggyy
 	bindsym --locked XF86AudioLowerVolume exec pamixer -d 1
 	bindsym --locked XF86AudioMute		  exec pamixer -t
+	bindsym --locked XF86AudioMicMute	  exec pamixer -t --default-source
 	#bindsym --locked XF86AudioRaiseVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo +1%  # Restricted to one sink
 	#bindsym --locked XF86AudioLowerVolume	exec pactl set-sink-volume alsa_output.pci-0000_06_00.6.analog-stereo -1%
 	#bindsym --locked XF86AudioMute			exec pactl set-sink-mute alsa_output.pci-0000_06_00.6.analog-stereo toggle
