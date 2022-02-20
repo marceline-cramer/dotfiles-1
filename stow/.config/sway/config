@@ -505,7 +505,7 @@ for_window [title="flameshot"] floating enable
 for_window [title="Welcome to CLion"] floating enable
 for_window [title="Welcome to IntelliJ IDEA"] floating enable
 for_window [title="win0"] floating enable
-for_window [title=" "] floating enable
+for_window [class="jetbrains-clion"] floating enable
 
 
 #
