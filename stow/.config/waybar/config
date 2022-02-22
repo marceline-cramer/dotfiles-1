@@ -96,12 +96,12 @@
 	    "interval": 10,
         // "thermal-zone": 2,
         //"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-        "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",  // 0 for laptop, 2 for desktop
+        "hwmon-path": "/sys/class/thermal/thermal_zone2/temp",  // 0 for laptop, 2 for desktop
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         //"format-icons": ["", "", ""]
-        "format-icons": ["\uf2dc", "\uf2db", "\uf2dd"]
+        "format-icons": ["\uf2e1", "\uf2e0", "\uf2e2"]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -134,7 +134,7 @@
 		"interval": 10,
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         //"format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{essid} ({signalStrength}%) \uf30f",
+        "format-wifi": "{essid} ({signalStrength}%) \uf314",
         //"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} \uf257",
         //"format-linked": "{ifname} (No IP) ",
@@ -149,9 +149,9 @@
         //"format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon}\uf138 {format_source}",
         //"format-bluetooth-muted": " {icon} {format_source}",
-        "format-bluetooth-muted": "\uf30a {icon}\uf138 {format_source}",
+        "format-bluetooth-muted": "\uf30f {icon}\uf138 {format_source}",
         //"format-muted": " {format_source}",
-        "format-muted": "\uf30a {format_source}",
+        "format-muted": "\uf30f {format_source}",
         //"format-source": "{volume}% ",
         "format-source": "{volume}% \uf23d",
         //"format-source-muted": "",
@@ -164,13 +164,13 @@
             //"headset": "",
             "headset": "\uf1fc",
             //"phone": "",
-            "phone": "\uf265",
+            "phone": "\uf26a",
             //"portable": "",
-            "portable": "\uf265",
+            "portable": "\uf26a",
             //"car": "",
             "car": "\uf14e",
             //"default": ["", "", ""]
-            "default": ["\uf307", "\uf308", "\uf309"]
+            "default": ["\uf30c", "\uf30d", "\uf30e"]
         },
         "on-click": "pavucontrol-qt"
     },
