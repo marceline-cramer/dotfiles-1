@@ -84,7 +84,7 @@ exec export _JAVA_AWT_WM_NONREPARENTING=1
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg ~/Pictures/Wallpapers/blockwavemoon_blurred.png fill
-output * bg '~/Pictures/Wallpapers/David_Schermann_75e14f63101837.5aaba9a498fa0.jpg' fill
+output * bg '~/Pictures/Wallpapers/David_Schermann_62e7a983510381.5d3f051eb14ee.jpg' fill
 #
 # Example configuration:
 #
@@ -500,6 +500,9 @@ for_window [app_id="qalculate-gtk"] floating enable
 for_window [app_id="mpv"] floating enable
 
 for_window [title="(Extracting .* file .*)|(File Already Exists — Ark)" app_id="org.kde.ark"] floating enable
+for_window [title="(Receiving files .*)|(Sending files .*)" app_id="org.kde.kdeconnect.daemon"] floating enable
+#for_window [title="" app_id="guayadeque"] floating enable
+#for_window [title="[^()]" app_id="guayadeque"] floating disable
 for_window [title="robopong testy"] floating enable
 for_window [title="Video Feed \[DEBUG\]"] floating enable
 for_window [title="Picture in picture"] floating enable
