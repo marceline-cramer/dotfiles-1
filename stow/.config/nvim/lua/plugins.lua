@@ -72,7 +72,7 @@ return require('packer').startup(function()
 							colored = true,
 						},
 						{
-							'diagnostics',
+							'diagnostic',
 							sources = {'coc', 'nvim_diagnostic'},
 							update_in_insert = true
 						},
