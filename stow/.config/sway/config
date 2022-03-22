@@ -557,7 +557,7 @@ exec pipewire
 exec_always foot -s
 exec_always kdeconnect-indicator
 exec sudo light -S 80
-exec flameshot
+#exec 'flameshot'
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
