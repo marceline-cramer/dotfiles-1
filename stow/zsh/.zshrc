@@ -33,7 +33,7 @@ fi
 
 export TERMINAL="foot"
 export EDITOR="nvim"
-export MANPAGER="nvim -R -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_COMMAND='fd --color=always --type file --hidden --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi"
