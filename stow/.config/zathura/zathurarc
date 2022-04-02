@@ -1,3 +1,4 @@
+
 set default-bg                  "rgba(224, 222, 244, 0)"
 set default-fg                  "#e0def4"
 
@@ -39,3 +40,5 @@ set recolor-keephue             "true"
 #set default-bg "rgba(0, 0, 0, 0)"
 
 set adjust-open width
+
+set show-recent 0
