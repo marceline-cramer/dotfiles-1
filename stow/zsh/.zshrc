@@ -104,6 +104,8 @@ autoload -Uz compinit
 autoload edit-command-line
 zle -N edit-command-line
 disable r
+autoload -U select-word-style
+select-word-style bash
 
 
 
@@ -111,13 +113,7 @@ disable r
  ##  Keybinds  ##
  ###          ###
 
-my-backward-kill-word () {  # Make Ctrl-Backspace not nuke a whole line
-    local WORDCHARS=${WORDCHARS/\/}
-    zle backward-kill-word
-}
-zle -N my-backward-kill-word
-
-bindkey '^H' my-backward-kill-word            # Ctrl-Backspace
+bindkey '^H' backward-kill-word               # Ctrl-Backspace
 bindkey '^[[3;5~' kill-word                   # Ctrl-Delete
 bindkey '^[[3~' delete-char                   # Delete
 bindkey '^[[H' beginning-of-line              # Home
