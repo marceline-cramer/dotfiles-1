@@ -167,7 +167,7 @@ abbr -S --quieter yya="yay"
  ###            ###
  
 eval "$(zoxide init zsh)"
-source /home/lilith/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
 #eval "$(starship init zsh)"
 #xsetroot -xcf /usr/share/icons/Bibata_Ghost/cursors/left_ptr 24
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
