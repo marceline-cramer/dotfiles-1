@@ -38,5 +38,6 @@ alias weather="curl wttr.in/$LOCATION_WTTR\?tqF"
 alias weathersmall="curl wttr.in/$LOCATION_WTTR\?format=\"+%c+%l\n+Actual:++++++%t\n+Feels+like:++%f\n\""
 
 alias maccheck="ethtool --show-permaddr wlan0 && echo -n 'Current address:   ' && ip link show dev wlan0 | rg ether | awk '{print \$2}'"
+alias restartfoot='{sleep .1 && foot -s} &! killall foot'
 
 # vim: ft=zsh
