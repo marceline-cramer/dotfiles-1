@@ -47,6 +47,12 @@ return require('packer').startup(function()
 	-- GLSL
 	use {'tikhomirov/vim-glsl', opt = true}
 
+	-- Yuck (eww config format)
+	use {'elkowar/yuck.vim'}
+
+	-- Parinfer (for yuck and other yucky stuff like Lisp)
+	use {'eraserhd/parinfer-rust', run = "cargo build --release"}
+
 
 	-- Status Line: Lualine
 	use {
