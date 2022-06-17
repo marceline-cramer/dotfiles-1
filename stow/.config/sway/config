@@ -312,6 +312,7 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 	# Reload the configuration file
 	bindsym $mod+Control+r reload
 
+
 	# Exit sway (logs you out of your Wayland session)
 	bindsym $mod+Control+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
@@ -457,8 +458,22 @@ mode "resize" {
 	# Return to default mode
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# Look into launch mode w/ custom rofi list some time
+#mode "launch" {
+#	
+#
+#	bindsym Escape mode "default"	
+#	bindsym $mod+q mode "default"
+#}
+#bindsym $mod+q exec swaymsg mode "launch" && rofi -show drun -theme rosepine
+
+bindsym $mod+KP_7 exec gtk-launch vivaldi-stable.desktop
+bindsym $mod+KP_8 exec gtk-launch obsidian.desktop
+
 
 #
 # Status Bar:
@@ -498,6 +513,7 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="pavucontrol-qt"] floating enable
 for_window [app_id="qalculate-gtk"] floating enable
 for_window [app_id="mpv"] floating enable
+for_window [class="Windscribe.*"] floating enable
 
 for_window [title="(Extracting .* file .*)|(File Already Exists — Ark)" app_id="org.kde.ark"] floating enable
 for_window [title="(Receiving files .*)|(Sending files .*)" app_id="org.kde.kdeconnect.daemon"] floating enable
