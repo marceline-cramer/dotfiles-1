@@ -558,6 +558,7 @@ exec_always foot -s
 exec_always kdeconnect-indicator
 exec sudo light -S 80
 #exec 'flameshot'
+exec mpd && exec mpd-mpris
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
