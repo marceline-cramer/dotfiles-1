@@ -2,7 +2,7 @@
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    "width": 1366, // Waybar width
+    //"width": 2560, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": [""],
@@ -60,9 +60,9 @@
         "format": "{icon}",
         "format-icons": {
             //"activated": "﯈",
-            "activated": "\uf1b6",
+            "activated": "\uf1f3",
             //"deactivated": "鈴"
-            "deactivated": "\uf1b7"
+            "deactivated": "\uf1f4"
         }
     },
     "tray": {
@@ -79,18 +79,18 @@
     "cpu": {
 	    "interval": 2,
         //"format": "{usage:2}% ",
-        "format": "{usage:2}% \uf199",
+        "format": "{usage:2}% \uf1cd",
         "tooltip": false
     },
     "memory": {
 	    "interval": 2,
         //"format": "{}% "
-        "format": "{}% \uf10c"
+        "format": "{}% \uf119"
     },
 	"disk": {
 	    "interval": 15,
         //"format": "{used}/{total} "
-        "format": "{used}/{total} \uf1f8"
+        "format": "{used}/{total} \uf23c"
 	},
     "temperature": {
 	    "interval": 10,
@@ -101,7 +101,7 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         //"format-icons": ["", "", ""]
-        "format-icons": ["\uf2e1", "\uf2e0", "\uf2e2"]
+        "format-icons": ["\uf341", "\uf340", "\uf342"]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -117,15 +117,15 @@
         },
         "format": "{capacity:2}% {icon}",
         //"format-charging": "{capacity:2}% ",
-        "format-charging": "{capacity:2}% \uf12b",
+        "format-charging": "{capacity:2}% \uf14a",
         //"format-plugged": "{capacity:2}% ",
-        "format-plugged": "{capacity:2}% \uf12c",
+        "format-plugged": "{capacity:2}% \uf2cb",
         "format-alt": "{time} {icon}",
 		//"tooltip-format": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         //"format-icons": [" ", " ", " ", " ", " "]
-        "format-icons": ["\uf12a", "\uf12d", "\uf12e", "\uf12e", "\uf12c"]
+        "format-icons": ["\uf149", "\uf14c", "\uf14d", "\uf14d", "\uf14b"]
     },
     "battery#bat2": {
         "bat": "BAT1"
@@ -134,43 +134,43 @@
 		"interval": 10,
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         //"format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{essid} ({signalStrength}%) \uf314",
+        "format-wifi": "{essid} ({signalStrength}%) \uf379",
         //"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} \uf257",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} \uf2a7",
         //"format-linked": "{ifname} (No IP) ",
-        "format-linked": "{ifname} (No IP) \uf257",
+        "format-linked": "{ifname} (No IP) \uf2a7",
         //"format-disconnected": "Disconnected ⚠",
-        "format-disconnected": "Disconnected \uf10a",
+        "format-disconnected": "Disconnected \uf10b",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         //"format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}\uf138 {format_source}",
+        "format-bluetooth": "{volume}% {icon}\uf15a {format_source}",
         //"format-bluetooth-muted": " {icon} {format_source}",
-        "format-bluetooth-muted": "\uf30f {icon}\uf138 {format_source}",
+        "format-bluetooth-muted": "\uf373 {icon}\uf15a {format_source}",
         //"format-muted": " {format_source}",
-        "format-muted": "\uf30f {format_source}",
+        "format-muted": "\uf373 {format_source}",
         //"format-source": "{volume}% ",
-        "format-source": "{volume}% \uf23d",
+        "format-source": "{volume}% \uf289",
         //"format-source-muted": "",
-        "format-source-muted": "\uf23e",
+        "format-source-muted": "\uf28a",
         "format-icons": {
             //"headphone": "",
-            "headphone": "\uf1fc",
+            "headphone": "\uf240",
             //"hands-free": "",
-            "hands-free": "\uf1fc",
+            "hands-free": "\uf240",
             //"headset": "",
-            "headset": "\uf1fc",
+            "headset": "\uf240",
             //"phone": "",
-            "phone": "\uf26a",
+            "phone": "\uf2bd",
             //"portable": "",
-            "portable": "\uf26a",
+            "portable": "\uf2bd",
             //"car": "",
-            "car": "\uf14e",
+            "car": "\uf17a",
             //"default": ["", "", ""]
-            "default": ["\uf30c", "\uf30d", "\uf30e"]
+            "default": ["\uf370", "\uf371", "\uf372"]
         },
         "on-click": "pavucontrol-qt"
     },
@@ -181,7 +181,7 @@
         "format-icons": {
             "spotify": "",
             //"default": "🎜"
-            "default": "\uf254"
+            "default": "\uf2a2"
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
