@@ -107,9 +107,9 @@ return require('packer').startup(function()
 		run = ':TSUpdate',
 		config = function()
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = "maintained",
+				ensure_installed = "all",
 				sync_install = false,
-				ignore_install = {"scala"},
+				ignore_install = {""},
 				highlight = {
 					enable = true,
 					-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -123,6 +123,11 @@ return require('packer').startup(function()
 				}
 			}
 	end}
+
+	-- Code Formatting: Neoformat
+	use {
+		'sbdchd/neoformat'
+	}
 
 	-- LSP: CoC
 	use {
