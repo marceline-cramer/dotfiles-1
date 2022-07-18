@@ -524,6 +524,9 @@ for_window [title="Video Feed \[DEBUG\]"] floating enable
 for_window [title="Picture in picture"] floating enable
 for_window [title="flameshot"] floating enable
 
+# Gaming stuff
+for_window [class="steam_proton"] floating enable
+
 # JetBrains splash screens
 for_window [title="Welcome to CLion"] floating enable
 for_window [title="Welcome to IntelliJ IDEA"] floating enable
@@ -575,6 +578,7 @@ exec_always kdeconnect-indicator
 exec sudo light -S 80
 #exec 'flameshot'
 exec mpd && exec mpd-mpris
+exec sleep 3 && noisetorch -i
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
