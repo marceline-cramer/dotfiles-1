@@ -9,3 +9,4 @@ configuration {
 }
 /*@import "/usr/share/rofi/themes/glue_pro_blue.rasi"*/
 @import "~/.config/rofi/rosepine.rasi"
+@theme "~/.config/rofi/rosepine.rasi"
