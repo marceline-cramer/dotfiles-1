@@ -19,7 +19,7 @@ set $term footclient
 #set $menu wofi --term kitty --allow-images --insensitive --gtk-dark --fork --show drun | xargs swaymsg exec --
 #set $menu BEMENU_BACKEND=wayland bemenu-run -i -l 20 -P '>' | xargs swaymsg exec --
 #set $menu rofi -show drun -theme rosepine | xargs swaymsg exec --
-set $menu j4-dmenu-desktop --dmenu='rofi -show drun -theme rosepine -scroll-method 0' --term='footclient'
+set $menu j4-dmenu-desktop --dmenu='rofi -show drun  -scroll-method 0 -display-drun launch' --term='footclient'
 
 #set $locker swaylock -e -f -i ~/Pictures/Wallpapers/blockwavemoon_blurred.png -s tile \
 #--inside-color 282a36cc \
@@ -268,7 +268,7 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 	# Start file browser
 	#bindsym $mod+e exec pcmanfm-qt
 	bindsym $mod+e exec dolphin
-	bindsym $mod+Control+e exec rofi -show filebrowser -theme base16-dracula
+	bindsym $mod+Control+e exec rofi -show filebrowser
 
 	# Calculator
 	bindsym XF86Calculator exec qalculate-gtk
@@ -286,6 +286,10 @@ bindsym $mod+Control+Alt+2 input type:keyboard xkb_variant colemak_dh
 	
 	# Start quick shortcuts menu
 	bindsym $mod+Shift+a exec ~/.local/bin/quickrun
+
+	# Emoji selector
+	bindsym $mod+semicolon exec rofimoji -r "emoji"
+	bindsym $mod+period exec rofimoji -r "emoji"
 
 	# Bitwarden
 	bindsym $mod+Control+Shift+b exec bwmenu --auto-lock 1800 -c 10 -- -theme rosepine
