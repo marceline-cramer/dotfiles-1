@@ -12,7 +12,7 @@ window#waybar.hidden {
 }
 
 .modules-left, .modules-center, .modules-right {
-    margin: 15px 11px 0px;
+    margin: 6px 6px 0px;
 }
 
 #window {
@@ -23,6 +23,8 @@ window#waybar.hidden {
 
 #workspaces,
 #mode,
+#disk,
+#network,
 #mpd,
 #custom-media,
 #tray,
@@ -31,11 +33,17 @@ window#waybar.hidden {
 #cpu,
 #temperature,
 #battery,
-#idle_inhibitor,
 #clock
 {
     margin: 0px 4px;
     padding: 7px 14px;
+    border-radius: 10px;
+    background: #191724;
+}
+
+#idle_inhibitor {
+    margin: 0px 4px;
+    padding: 9px 9px;
     border-radius: 10px;
     background: #191724;
 }
@@ -45,7 +53,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 0px 7px 0px 7px;
+    padding: 0px 0px 0px 0px;
     color: #e0def4;
     background: transparent;
 }
